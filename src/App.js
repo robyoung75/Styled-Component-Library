@@ -1,6 +1,6 @@
 import Button from "./Components/Button/Button";
 import Card from "./Components/Card/Card";
-import Input from "./Components/MyInput/MyInput";
+import Input from "./Components/Input/input";
 import Avatar from "./Components/Avatar/Avatar";
 
 import brighton from "./Assets/Images/brighton.jpg";
