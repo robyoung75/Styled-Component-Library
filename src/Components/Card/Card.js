@@ -1,22 +1,6 @@
 import React from "react";
-import styled, { css } from "styled-components";
 
-const flexStyles = css`
-display: flex;
-flex-direction: ${(props) => props.flexDirection};
-align-items: ${(props) => props.alignItems};
-justify-content: ${(props) => props.justifyContent};
-`;
-
-const StyledCard = styled.div`
-${(props) => props.isFlex && flexStyles};
-margin: ${(props) => props.margin};
-padding: ${(props) => props.padding};
-background: ${(props) => props.background};
-border: ${(props) => props.border};
-width: ${(props) => props.width};
-border-radius: 0.75rem;
-`;
+import { StyledCard } from "../../Styles/Styles";
 
 function Card({
   children,
@@ -29,8 +13,8 @@ function Card({
   background = "#100F10",
   border,
   width,
+  borderRadius
 }) {
-
   return (
     <StyledCard
       isFlex={isFlex}
@@ -42,6 +26,7 @@ function Card({
       background={background}
       border={border}
       width={width}
+      borderRadius={borderRadius}
     >
       {children}
     </StyledCard>

@@ -9,23 +9,11 @@ import "./App.css";
 
 import styled from "styled-components";
 import { useState } from "react";
+import Modal from "./Components/Modal/Modal";
+import {StyledWrapper, Title, SubTitle} from './Styles/Styles'
 
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;
 
-const Title = styled.h1`
-  color: ${(props) => props.color};
-  text-decoration: ${(props) => props.textDecoration};
-  text-align: center;
-`;
 
-const SubTitle = styled.h3`
-  color: ${(props) => props.color};
-`;
 
 function App() {
   const [user, setUser] = useState({ firstName: "", lastName: "" });
@@ -53,7 +41,7 @@ function App() {
   };
 
   return (
-    <Wrapper>
+    <StyledWrapper isFlex flexDirection="column">
       <Title color="#8f44fd">Components Library</Title>
       <SubTitle color="#8f44fd">Styled-Components</SubTitle>{" "}
       <Card
@@ -65,6 +53,7 @@ function App() {
         margin="0 0 2rem"
         border="2px solid white"
         background="linear-gradient(to right, #d763cd, #8f44fd)"
+        
       >
         <Title color="papayawhip" textDecoration="underline">
           Styled Card
@@ -94,7 +83,11 @@ function App() {
           Cancel
         </Button>
       </Card>
-    </Wrapper>
+   
+     
+        <Modal />
+    
+    </StyledWrapper>
   );
 }
 
