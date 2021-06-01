@@ -54,17 +54,20 @@ function App() {
       flexDirection="column"
       backgroundColor="darkgrey"
       alignItems="center"
-      
     >
       {modal ? (
-        <StyledModalWrapper >
-          <Modal  />
+        <StyledModalWrapper>
+          <Modal />
         </StyledModalWrapper>
       ) : null}
 
       <StyledWrapper>
-        <Title color="#8f44fd" textAlign="center">Components Library</Title>
-        <SubTitle color="#8f44fd" textAlign="center">Styled-Components</SubTitle>{" "}
+        <Title color="#8f44fd" textAlign="center">
+          Components Library
+        </Title>
+        <SubTitle color="#8f44fd" textAlign="center">
+          Styled-Components
+        </SubTitle>{" "}
         <Card
           isFlex
           flexDirection="column"
@@ -75,9 +78,12 @@ function App() {
           border="2px solid white"
           background="linear-gradient(to right, #d763cd, rgba(143,68,253))"
           borderRadius=".75rem"
-          
         >
-          <Title color="papayawhip" textDecoration="underline" textAlign="center">
+          <Title
+            color="papayawhip"
+            textDecoration="underline"
+            textAlign="center"
+          >
             Styled Card
           </Title>
           <Avatar hasBadge src={brighton} isActive="true" name="RY"></Avatar>

@@ -1,5 +1,3 @@
-
-
 import { StyledCard } from "../../Styles/Styles";
 
 function Card({
@@ -13,7 +11,7 @@ function Card({
   background = "#100F10",
   border,
   width,
-  borderRadius
+  borderRadius,
 }) {
   return (
     <StyledCard
