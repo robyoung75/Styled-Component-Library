@@ -4,12 +4,19 @@ import Button from "../Button/Button";
 import Card from "../Card/Card";
 import Input from "../Input/input";
 
-import { StyledWrapper, Title, Header } from "../../Styles/Styles";
+import {
+  StyledWrapper,
+  StyledP,
+  Header,
+ 
+} from "../../Styles/Styles";
 
-function Modal() {
+function Modal({onClick}) {
   return (
-    <StyledWrapper isFlex flexDirection="column">
-      {" "}
+    <StyledWrapper>
+      <Header isFlex backgroundColor="#8f44fd">
+        <StyledP color="papayawhip">Modal</StyledP>
+      </Header>
       <Card
         isFlex
         flexDirection="column"
@@ -17,19 +24,14 @@ function Modal() {
         justifyContent="center"
         padding="0"
         margin="0"
-        border="2px solid white"
+        borderRadius="0 0 .75rem .75rem"
         background="linear-gradient(to right, #d763cd, #8f44fd)"
-        borderRadius="0 0 0.75rem 0.75rem "
-        width="100%"
+        
       >
-        <Header isFlex backgroundColor="#8f44fd">
-          {" "}
-          <Title color="papayawhip">Modal</Title>
-        </Header>{" "}
         <Input />
         <StyledWrapper isFlex>
           <Button>Submit</Button>
-          <Button>Cancel</Button>
+          <Button onClick={onClick}>Cancel</Button>
         </StyledWrapper>
       </Card>
     </StyledWrapper>

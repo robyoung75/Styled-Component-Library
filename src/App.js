@@ -10,14 +10,17 @@ import "./App.css";
 import styled from "styled-components";
 import { useState } from "react";
 import Modal from "./Components/Modal/Modal";
-import {StyledWrapper, Title, SubTitle} from './Styles/Styles'
-
-
-
+import {
+  StyledWrapper,
+  Title,
+  SubTitle,
+  StyledModalWrapper,
+} from "./Styles/Styles";
 
 function App() {
   const [user, setUser] = useState({ firstName: "", lastName: "" });
   const [data, setData] = useState(null);
+  const [modal, setModal] = useState(false);
 
   const handleFirstName = (e) => {
     e.preventDefault();
@@ -40,53 +43,62 @@ function App() {
     setUser({ firstName: "", lastName: "" });
   };
 
+  const handleCloseModal = (e) => {
+    e.preventDefault();
+    setModal(false);
+  };
+
   return (
-    <StyledWrapper isFlex flexDirection="column">
-      <Title color="#8f44fd">Components Library</Title>
-      <SubTitle color="#8f44fd">Styled-Components</SubTitle>{" "}
-      <Card
-        isFlex
-        flexDirection="column"
-        alignItems="center"
-        justifyContent="center"
-        padding="2rem"
-        margin="0 0 2rem"
-        border="2px solid white"
-        background="linear-gradient(to right, #d763cd, #8f44fd)"
-        
-      >
-        <Title color="papayawhip" textDecoration="underline">
-          Styled Card
-        </Title>
-        <Avatar hasBadge src={brighton} isActive="true" name="RY"></Avatar>
+    <StyledWrapper>
+      {modal ? (
+        <StyledModalWrapper>
+          <Modal onClick={handleCloseModal} />
+        </StyledModalWrapper>
+      ) : null}
 
-        <SubTitle color="papayawhip">Styled Components Inputs</SubTitle>
+      <StyledWrapper isFlex flexDirection="column">
+        <Title color="#8f44fd">Components Library</Title>
+        <SubTitle color="#8f44fd">Styled-Components</SubTitle>{" "}
+        <Card
+          isFlex
+          flexDirection="column"
+          alignItems="center"
+          justifyContent="center"
+          padding="2rem"
+          margin="0 0 2rem"
+          border="2px solid white"
+          background="linear-gradient(to right, #d763cd, #8f44fd)"
+          borderRadius=".75rem"
+        >
+          <Title color="papayawhip" textDecoration="underline">
+            Styled Card
+          </Title>
+          <Avatar hasBadge src={brighton} isActive="true" name="RY"></Avatar>
 
-        <Input
-          onChange={handleFirstName}
-          placeholder="First name"
-          value={user.firstName}
-          color="palevioletred"
-        />
-        <Input
-          onChange={handleLastName}
-          placeholder="Last name"
-          value={user.lastName}
-          color="palevioletred"
-        />
+          <SubTitle color="papayawhip">Styled Components Inputs</SubTitle>
 
-        <SubTitle color="papayawhip">Styled Components Buttons</SubTitle>
-        <Button onClick={handleUser} color="#8f44fd" primary>
-          Submit
-        </Button>
-        <Button onClick={handleCancel} color="#8f44fd">
-          Cancel
-        </Button>
-      </Card>
-   
-     
-        <Modal />
-    
+          <Input
+            onChange={handleFirstName}
+            placeholder="First name"
+            value={user.firstName}
+            color="palevioletred"
+          />
+          <Input
+            onChange={handleLastName}
+            placeholder="Last name"
+            value={user.lastName}
+            color="palevioletred"
+          />
+
+          <SubTitle color="papayawhip">Styled Components Buttons</SubTitle>
+          <Button onClick={handleUser} color="#8f44fd" primary>
+            Submit
+          </Button>
+          <Button onClick={handleCancel} color="#8f44fd">
+            Cancel
+          </Button>
+        </Card>
+      </StyledWrapper>
     </StyledWrapper>
   );
 }

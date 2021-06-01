@@ -9,25 +9,47 @@ const flexStyles = css`
 // rendered by > App > > Modal
 const StyledWrapper = styled.div`
   ${(props) => props.isFlex && flexStyles};
+  background-color: ${props => props.backgroundColor}
+  
+  
+`;
+// rendered by > App
+const StyledModalWrapper = styled.div`
+  
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  z-index: 2;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  height: auto;
+
+
 `;
 // rendered by > App >
 const Title = styled.h1`
   color: ${(props) => props.color};
   text-decoration: ${(props) => props.textDecoration};
   text-align: center;
-
   
 `;
 // rendered by > App >
 const SubTitle = styled.h3`
   color: ${(props) => props.color};
+
+`;
+
+// rendered by > Modal
+const StyledP = styled.p`
+color: ${props => props.color}
 `;
 // rendered by > Modal
 const Header = styled.div`
   ${(props) => props.isFlex && flexStyles};
   background-color: ${(props) => props.backgroundColor || "grey"};
   width: ${props => props.width || "100%"};
-  border-radius: 0.75rem 0.75rem 0 0;
+  height: 2rem;
+  border-radius: 0.5rem 0.5rem 0 0;
  
 `;
 // rendered by > App > Modal
@@ -80,7 +102,10 @@ const StyledCard = styled.div`
   background: ${(props) => props.background};
   border: ${(props) => props.border};
   width: ${(props) => props.width};
-  border-radius: .75rem;
+  min-height: ${props => props.minHeight || '400px'};
+  border-radius: ${props => props.borderRadius}
+  
+ 
 `;
 // rendered by > App > Modal
 const StyledInput = styled.input.attrs((props) => ({
@@ -168,10 +193,15 @@ const StyledBadge = styled.span`
   background: #21fc6b;
 `;
 
+
+
+
+
 export {
   StyledWrapper,
   Title,
   SubTitle,
+  StyledP,
   Header,
   StyledButton,
   StyledCard,
@@ -180,4 +210,5 @@ export {
   StyledImage,
   StyledSpan,
   StyledBadge,
+  StyledModalWrapper,
 };
