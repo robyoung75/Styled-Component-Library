@@ -49,28 +49,35 @@ function App() {
   };
 
   return (
-    <StyledWrapper>
+    <StyledWrapper
+      isFlex
+      flexDirection="column"
+      backgroundColor="darkgrey"
+      alignItems="center"
+      
+    >
       {modal ? (
-        <StyledModalWrapper>
-          <Modal onClick={handleCloseModal} />
+        <StyledModalWrapper >
+          <Modal  />
         </StyledModalWrapper>
       ) : null}
 
-      <StyledWrapper isFlex flexDirection="column">
-        <Title color="#8f44fd">Components Library</Title>
-        <SubTitle color="#8f44fd">Styled-Components</SubTitle>{" "}
+      <StyledWrapper>
+        <Title color="#8f44fd" textAlign="center">Components Library</Title>
+        <SubTitle color="#8f44fd" textAlign="center">Styled-Components</SubTitle>{" "}
         <Card
           isFlex
           flexDirection="column"
-          alignItems="center"
           justifyContent="center"
+          alignItems="center"
           padding="2rem"
           margin="0 0 2rem"
           border="2px solid white"
-          background="linear-gradient(to right, #d763cd, #8f44fd)"
+          background="linear-gradient(to right, #d763cd, rgba(143,68,253))"
           borderRadius=".75rem"
+          
         >
-          <Title color="papayawhip" textDecoration="underline">
+          <Title color="papayawhip" textDecoration="underline" textAlign="center">
             Styled Card
           </Title>
           <Avatar hasBadge src={brighton} isActive="true" name="RY"></Avatar>

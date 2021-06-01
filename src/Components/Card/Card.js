@@ -1,4 +1,4 @@
-import React from "react";
+
 
 import { StyledCard } from "../../Styles/Styles";
 

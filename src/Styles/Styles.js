@@ -3,19 +3,18 @@ import styled, { css } from "styled-components";
 const flexStyles = css`
   display: flex;
   flex-direction: ${(props) => props.flexDirection || "row"};
-  align-items: ${(props) => props.alignItems || "center"};
-  justify-content: ${(props) => props.justifyContent || "center"};
+  align-items: ${(props) => props.alignItems || "start"};
+  justify-content: ${(props) => props.justifyContent || "start"};
 `;
 // rendered by > App > > Modal
 const StyledWrapper = styled.div`
   ${(props) => props.isFlex && flexStyles};
-  background-color: ${props => props.backgroundColor}
-  
-  
+  background-color: ${(props) => props.backgroundColor};
+  width: ${(props) => props.width};
+  height: ${(props) => props.height || "auto"};
 `;
 // rendered by > App
 const StyledModalWrapper = styled.div`
-  
   position: fixed;
   left: 50%;
   top: 50%;
@@ -23,34 +22,35 @@ const StyledModalWrapper = styled.div`
   transform: translate(-50%, -50%);
   width: 50%;
   height: auto;
-
-
 `;
 // rendered by > App >
 const Title = styled.h1`
   color: ${(props) => props.color};
   text-decoration: ${(props) => props.textDecoration};
-  text-align: center;
-  
+  text-align: ${(props) => props.textAlign};
 `;
 // rendered by > App >
 const SubTitle = styled.h3`
   color: ${(props) => props.color};
-
+  text-align: ${(props) => props.textAlign};
 `;
 
-// rendered by > Modal
+// rendered by > Modal > Input
 const StyledP = styled.p`
-color: ${props => props.color}
+  color: ${(props) => props.color};
+  padding: ${(props) => props.padding || 0};
+  margin: ${(props) => props.margin || 0};
+  text-align: ${(props) => props.textAlign};
 `;
 // rendered by > Modal
 const Header = styled.div`
   ${(props) => props.isFlex && flexStyles};
   background-color: ${(props) => props.backgroundColor || "grey"};
-  width: ${props => props.width || "100%"};
+  width: ${(props) => props.width || "100%"};
   height: 2rem;
   border-radius: 0.5rem 0.5rem 0 0;
- 
+  border: ${(props) => props.border};
+  min-width: 275px;
 `;
 // rendered by > App > Modal
 const StyledButton = styled.button`
@@ -97,15 +97,14 @@ const StyledButton = styled.button`
 // rendered by > App > Modal
 const StyledCard = styled.div`
   ${(props) => props.isFlex && flexStyles};
-  margin: ${(props) => props.margin };
+  margin: ${(props) => props.margin};
   padding: ${(props) => props.padding};
   background: ${(props) => props.background};
   border: ${(props) => props.border};
   width: ${(props) => props.width};
-  min-height: ${props => props.minHeight || '400px'};
-  border-radius: ${props => props.borderRadius}
-  
- 
+  min-height: ${(props) => props.minHeight || "400px"};
+  border-radius: ${(props) => props.borderRadius};
+  min-width: 275px;
 `;
 // rendered by > App > Modal
 const StyledInput = styled.input.attrs((props) => ({
@@ -116,12 +115,12 @@ const StyledInput = styled.input.attrs((props) => ({
 }))`
   font-size: 0.75rem;
   padding: 0.5rem;
-  margin: 0.75rem;
+  margin: 0.75rem 0;
   color: ${(props) => props.color || "palevioletred"};
   background: ${(props) => props.background || "papayawhip"};
   border: none;
   border-radius: 0.25rem;
-  width: ${(props) => props.width || "80%"};
+  width: ${(props) => props.width || "100%"};
   ::placeholder {
     color: ${(props) => props.color || "palevioletred"};
   }
@@ -192,10 +191,6 @@ const StyledBadge = styled.span`
   border: 4px solid #262526;
   background: #21fc6b;
 `;
-
-
-
-
 
 export {
   StyledWrapper,
