@@ -1,15 +1,14 @@
+// React
+import { useState } from "react";
+
+// Components imports
 import Button from "./Components/Button/Button";
 import Card from "./Components/Card/Card";
 import Input from "./Components/Input/input";
 import Avatar from "./Components/Avatar/Avatar";
-
-import brighton from "./Assets/Images/brighton.jpg";
-
-import "./App.css";
-
-import styled from "styled-components";
-import { useState } from "react";
 import Modal from "./Components/Modal/Modal";
+
+//Styled Components Imports
 import {
   StyledWrapper,
   Title,
@@ -17,57 +16,63 @@ import {
   StyledModalWrapper,
 } from "./Styles/Styles";
 
+// Event Handlers
+import {
+  handleFirstName,
+  handleLastName,
+  handleUser,
+  handleCancel,
+  handleOpenModal,
+  handleCloseModal,
+} from "./Assets/eventHandlers/eventHandlers";
+
+// images
+import brighton from "./Assets/Images/brighton.jpg";
+
+// App > StyledWrapper > Title > SubTitle > StyledModalWrapper
 function App() {
+  // State
   const [user, setUser] = useState({ firstName: "", lastName: "" });
   const [data, setData] = useState(null);
   const [modal, setModal] = useState(false);
 
-  const handleFirstName = (e) => {
-    e.preventDefault();
-    setUser({ ...user, firstName: e.target.value });
-  };
-
-  const handleLastName = (e) => {
-    e.preventDefault();
-    setUser({ ...user, lastName: e.target.value });
-  };
-
-  const handleUser = (e) => {
-    e.preventDefault();
-    setData(user);
-    setUser({ firstName: "", lastName: "" });
-  };
-
-  const handleCancel = (e) => {
-    e.preventDefault();
-    setUser({ firstName: "", lastName: "" });
-  };
-
-  const handleCloseModal = (e) => {
-    e.preventDefault();
-    setModal(false);
-  };
-
   return (
+    // StyledWrapper props isFlex then flexStyles: display, flexDirection, alignItems, justifyContent,
+    // backgroundColor, width, height, margin, paddng
     <StyledWrapper
       isFlex
       flexDirection="column"
       backgroundColor="darkgrey"
       alignItems="center"
+      justifyContent="center"
     >
       {modal ? (
         <StyledModalWrapper>
-          <Modal />
+          <Modal
+            onClick={(e) => {
+              e.preventDefault();
+              handleCloseModal(setModal);
+            }}
+          />
         </StyledModalWrapper>
       ) : null}
 
-      <StyledWrapper>
+      <StyledWrapper
+        isFlex
+        flexDirection="column"
+        justifyContent="center"
+        alignItems="center"
+      >
+        {/* Title props: color, textDecoration, textAlign */}
         <Title color="#8f44fd" textAlign="center">
           Components Library
         </Title>
+        {/* SubTitle props: color, textDecoration, textAlign */}
         <SubTitle color="#8f44fd" textAlign="center">
           Styled-Components
         </SubTitle>{" "}
+        {/*  // Card props isFlex then flexStyles: display, flexDirection, alignItems, justifyContent, 
+        margin, padding, background, border, width, minHeight, borderRadius, minWidth */}
         <Card
           isFlex
           flexDirection="column"
@@ -86,29 +91,63 @@ function App() {
           >
             Styled Card
           </Title>
+
+          {/* Avatar props isActive, hasBadge, name, src */}
           <Avatar hasBadge src={brighton} isActive="true" name="RY"></Avatar>
 
           <SubTitle color="papayawhip">Styled Components Inputs</SubTitle>
 
+          {/* Input props onChange, type, placeholder, value, color, width, background */}
           <Input
-            onChange={handleFirstName}
+            onChange={(e) => {
+              e.preventDefault();
+              let target = e.target.value;
+              handleFirstName(user, setUser, target);
+            }}
             placeholder="First name"
             value={user.firstName}
             color="palevioletred"
           />
           <Input
-            onChange={handleLastName}
+            onChange={(e) => {
+              e.preventDefault();
+              let target = e.target.value;
+              handleLastName(user, setUser, target);
+            }}
             placeholder="Last name"
             value={user.lastName}
             color="palevioletred"
           />
 
           <SubTitle color="papayawhip">Styled Components Buttons</SubTitle>
-          <Button onClick={handleUser} color="#8f44fd" primary>
+          {/* Button props onClick, color, primary */}
+          <Button
+            onClick={(e) => {
+              e.preventDefault();
+              handleUser(user, setData, setUser);
+            }}
+            color="#8f44fd"
+            primary
+          >
             Submit
           </Button>
-          <Button onClick={handleCancel} color="#8f44fd">
+          <Button
+            onClick={(e) => {
+              e.preventDefault();
+              handleCancel(setUser);
+            }}
+            color="#8f44fd"
+          >
             Cancel
+          </Button>
+          <Button
+            onClick={(e) => {
+              e.preventDefault();
+              handleOpenModal(setModal);
+            }}
+            color="#8f44fd"
+          >
+            Modal
           </Button>
         </Card>
       </StyledWrapper>

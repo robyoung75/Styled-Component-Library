@@ -12,6 +12,8 @@ const StyledWrapper = styled.div`
   background-color: ${(props) => props.backgroundColor};
   width: ${(props) => props.width};
   height: ${(props) => props.height || "auto"};
+  padding: ${(props) => props.padding || 0};
+  margin: ${(props) => props.margin || 0};
 `;
 // rendered by > App
 const StyledModalWrapper = styled.div`
@@ -52,7 +54,20 @@ const Header = styled.div`
   border: ${(props) => props.border};
   min-width: 275px;
 `;
-// rendered by > App > Modal
+
+// StyledCard rendered by > App > Modal
+const StyledCard = styled.div`
+  ${(props) => props.isFlex && flexStyles};
+  margin: ${(props) => props.margin};
+  padding: ${(props) => props.padding};
+  background: ${(props) => props.background};
+  border: ${(props) => props.border};
+  width: ${(props) => props.width || "100%"};
+  min-height: ${(props) => props.minHeight || "400px"};
+  border-radius: ${(props) => props.borderRadius};
+  min-width: 275px;
+`;
+// Styled Button rendered by > App > Modal
 const StyledButton = styled.button`
   background: ${(props) =>
     props.primary && props.color
@@ -94,19 +109,8 @@ const StyledButton = styled.button`
         : "papayawhip"};
   }
 `;
-// rendered by > App > Modal
-const StyledCard = styled.div`
-  ${(props) => props.isFlex && flexStyles};
-  margin: ${(props) => props.margin};
-  padding: ${(props) => props.padding};
-  background: ${(props) => props.background};
-  border: ${(props) => props.border};
-  width: ${(props) => props.width};
-  min-height: ${(props) => props.minHeight || "400px"};
-  border-radius: ${(props) => props.borderRadius};
-  min-width: 275px;
-`;
-// rendered by > App > Modal
+
+// StyledInput rendered by > App > Modal
 const StyledInput = styled.input.attrs((props) => ({
   type: props.type || "text",
   placeholder: props.placeholder || "Enter text",
@@ -125,7 +129,7 @@ const StyledInput = styled.input.attrs((props) => ({
     color: ${(props) => props.color || "palevioletred"};
   }
 `;
-// rendered by Avatar
+// Avatar Style rendered by Avatar
 const size = "80px";
 
 const sharedStyles = css`
