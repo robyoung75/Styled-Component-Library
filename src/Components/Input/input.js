@@ -9,8 +9,8 @@ function Input({
   placeholder,
   value,
   color,
-  width,
   background,
+  width,
 }) {
   return (
     <StyledLabel>
@@ -21,7 +21,7 @@ function Input({
         value={value}
         onChange={onChange}
         color={color}
-        width="200px"
+        width={width}
         background={background}
       />
     </StyledLabel>

@@ -124,7 +124,7 @@ const StyledInput = styled.input.attrs((props) => ({
   background: ${(props) => props.background || "papayawhip"};
   border: none;
   border-radius: 0.25rem;
-  width: ${(props) => props.width || "100%"};
+  width: ${(props) => props.width || "200px"};
   ::placeholder {
     color: ${(props) => props.color || "palevioletred"};
   }
@@ -142,11 +142,11 @@ const sharedStyles = css`
 
 const activeStyles = css`
   background: #262526;
-  &::before {
+  &:before {
     content: "";
     display: block;
     position: absolute;
-    z-index: -1;
+    opacity: 0.2;
     top: -2px;
     left: -2px;
     width: calc(100% + 4px);

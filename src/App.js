@@ -7,6 +7,7 @@ import Card from "./Components/Card/Card";
 import Input from "./Components/Input/input";
 import Avatar from "./Components/Avatar/Avatar";
 import Modal from "./Components/Modal/Modal";
+import Navbar from './Components/Navbar/Navbar';
 
 //Styled Components Imports
 import {
@@ -18,12 +19,8 @@ import {
 
 // Event Handlers
 import {
-  handleFirstName,
-  handleLastName,
-  handleUser,
-  handleCancel,
-  handleOpenModal,
-  handleCloseModal,
+  handleSubmitUser,
+  handleEvent,
 } from "./Assets/eventHandlers/eventHandlers";
 
 // images
@@ -32,9 +29,13 @@ import brighton from "./Assets/Images/brighton.jpg";
 // App > StyledWrapper > Title > SubTitle > StyledModalWrapper
 function App() {
   // State
-  const [user, setUser] = useState({ firstName: "", lastName: "" });
-  const [data, setData] = useState(null);
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [userData, setUserData] = useState({ firstName: "", lastName: "" });
+
   const [modal, setModal] = useState(false);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
   return (
     // StyledWrapper props isFlex then flexStyles: display, flexDirection, alignItems, justifyContent,
@@ -46,13 +47,43 @@ function App() {
       alignItems="center"
       justifyContent="center"
     >
+      <Navbar/>
       {modal ? (
         <StyledModalWrapper>
           <Modal
-            onClick={(e) => {
+            onClickClose={(e) => {
               e.preventDefault();
-              handleCloseModal(setModal);
+              handleEvent(modal, setModal);
             }}
+            onClickSubmit={(e) => {
+              e.preventDefault();
+              handleSubmitUser(
+                userData,
+                firstName,
+                lastName,
+                username,
+                password,
+                setUserData,
+                setFirstName,
+                setLastName,
+                setUsername,
+                setPassword
+              );
+            }}
+            onChangeUserName={(e) => {
+              e.preventDefault();
+              let target = e.target.value;
+              handleEvent(username, setUsername, target);
+            }}
+            onChangePassword={(e) => {
+              e.preventDefault();
+              let target = e.target.value;
+              handleEvent(password, setPassword, target);
+            }}
+            username={username}
+            setUsername={setUsername}
+            password={password}
+            setPassword={setPassword}
           />
         </StyledModalWrapper>
       ) : null}
@@ -94,28 +125,28 @@ function App() {
 
           {/* Avatar props isActive, hasBadge, name, src */}
           <Avatar hasBadge src={brighton} isActive="true" name="RY"></Avatar>
+          <Avatar hasBadge isActive="true" name="RY"></Avatar>
 
           <SubTitle color="papayawhip">Styled Components Inputs</SubTitle>
 
           {/* Input props onChange, type, placeholder, value, color, width, background */}
           <Input
             onChange={(e) => {
-              e.preventDefault();
-              let target = e.target.value;
-              handleFirstName(user, setUser, target);
+              const target = e.target.value;
+              handleEvent(firstName, setFirstName, target);
             }}
             placeholder="First name"
-            value={user.firstName}
+            value={firstName}
             color="palevioletred"
           />
           <Input
             onChange={(e) => {
               e.preventDefault();
               let target = e.target.value;
-              handleLastName(user, setUser, target);
+              handleEvent(lastName, setLastName, target);
             }}
             placeholder="Last name"
-            value={user.lastName}
+            value={lastName}
             color="palevioletred"
           />
 
@@ -124,7 +155,18 @@ function App() {
           <Button
             onClick={(e) => {
               e.preventDefault();
-              handleUser(user, setData, setUser);
+              handleSubmitUser(
+                userData,
+                firstName,
+                lastName,
+                username,
+                password,
+                setUserData,
+                setFirstName,
+                setLastName,
+                setUsername,
+                setPassword
+              );
             }}
             color="#8f44fd"
             primary
@@ -134,7 +176,8 @@ function App() {
           <Button
             onClick={(e) => {
               e.preventDefault();
-              handleCancel(setUser);
+              handleEvent(firstName, setFirstName);
+              handleEvent(lastName, setLastName);
             }}
             color="#8f44fd"
           >
@@ -143,7 +186,7 @@ function App() {
           <Button
             onClick={(e) => {
               e.preventDefault();
-              handleOpenModal(setModal);
+              handleEvent(modal, setModal);
             }}
             color="#8f44fd"
           >
