@@ -1,9 +1,11 @@
+// rendered in App as a child of Card
+
 import {
   StyledAvatar,
   StyledImage,
   StyledSpan,
   StyledBadge,
-} from "../../Styles/Styles";
+} from "../../Styles/AvatarStyles";
 
 function Avatar({ isActive, hasBadge, name, src }) {
   return (

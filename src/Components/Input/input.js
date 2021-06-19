@@ -1,8 +1,9 @@
-import { StyledInput, StyledP } from "../../Styles/Styles";
+import { StyledP } from "../../Styles/Styles";
+import { StyledInput, StyledLabel } from "../../Styles/InputStyles";
 
-import styled from "styled-components";
 
-const StyledLabel = styled.label``;
+
+
 function Input({
   onChange,
   type,

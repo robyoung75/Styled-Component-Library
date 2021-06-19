@@ -1,94 +1,24 @@
 import React, { useState } from "react";
-import styled from "styled-components";
 
-// styled components
+// Styles Styled Components
 import { StyledWrapper } from "../../Styles/Styles";
+import {
+  StyledList,
+  StyledListItem,
+  StyledListItemLink,
+  StyledDropdown,
+  StyledDropdownContent,
+  StyledDropdownLink,
+} from "../../Styles/NavbarStyles";
 
-const StyledList = styled.ul`
-  display: flex;
-  justify-content: center;
-  list-style: none;
-  background-color: red;
-  padding: 0 1rem;
-`;
-
-const StyledListItem = styled.li`
-  position: relative;
-  padding: 25px;
-  height: 100%;
-  background-color: green;
-  cursor: pointer;
-  &:hover .navbar__dropdownContent {
-    opacity: 1;
-    pointer-events: all;
-  }
-`;
-
-const StyledDropdown = styled.div``;
-
-const StyledDropdownContent = styled.div`
-  background-color: yellow;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 30px 15px;
-  margin: 0;
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%, 15px);
-  border-radius: 10px;
-  transition: opacity 0.3s;
-  opacity: 0;
-  pointer-events: none;
-  transition-delay: 0.2s;
-
-  &::before {
-    content: "";
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    top: 5px;
-    background-color: orange;
-    transform-orign: 0 0;
-    transform: rotate(45deg) translate(-50%, -50%);
-  }
-`;
-
-const StyledListItemLink = styled.a`
-  color: pink;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  transition: all 0.3s;
-  &:hover {
-    transform: scale(1.2);
-    color: magenta;
-  }
-`;
-
-const StyledDropdownLink = styled.a`
-  text-decoration: none;
-  color: red;
-  white-space: nowrap;
-  transition: all 0.3s;
-  text-transform: capitalize;
-  font-size: 1rem;
-  &:hover {
-    transform: translateX(10px);
-  }
-`;
+import { handleEvent } from "../../Assets/eventHandlers/eventHandlers";
 
 function Navbar() {
+  const [isActive, setIsActive] = useState(true);
+
   return (
-    <StyledWrapper
-      className="navbar"
-      isFlex
-      backgroundColor="blue"
-      justifyContent="center"
-      width="100%"
-    >
-      <StyledList className="navbar__list">
+    <StyledWrapper className="navbar" isFlex height="0" zIndex="3">
+      <StyledList className="navbar__list" isActive={isActive}>
         <StyledListItem>
           <StyledListItemLink>Home</StyledListItemLink>
         </StyledListItem>
@@ -122,16 +52,93 @@ function Navbar() {
           </StyledDropdownContent>
         </StyledListItem>
       </StyledList>
+
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          backgroundColor: "pink",
+          borderRadius: "50%",
+          width: 45,
+          height: 45,
+          position: "absolute",
+          right: 5,
+          top: 5,
+          margin: 0,
+          padding: 0,
+          zIndex: 999,
+        }}
+        onClick={(e) => {
+          e.preventDefault();
+          handleEvent(isActive, setIsActive);
+        }}
+      >
+        <span
+          style={
+            !isActive
+              ? {
+                  margin: "2px 0",
+                  width: 15,
+                  height: 2,
+                  backgroundColor: "black",
+                  transition: "all 0.3s",
+                  transform: "translate(0, 6px) rotate(45deg)",
+                }
+              : {
+                  margin: "2px 0",
+                  width: 15,
+                  height: 2,
+                  backgroundColor: "black",
+                  transition: "all 0.3s",
+                }
+          }
+        ></span>
+        <span
+          style={
+            !isActive
+              ? {
+                  margin: "2px 0",
+                  width: 15,
+                  height: 2,
+                  backgroundColor: "black",
+                  transition: "all 0.3s",
+                  transform: "translateX(100px)",
+                  opacity: 0,
+                }
+              : {
+                  margin: "2px 0",
+                  width: 15,
+                  height: 2,
+                  backgroundColor: "black",
+                  transition: "all 0.3s",
+                }
+          }
+        ></span>
+        <span
+          style={
+            !isActive
+              ? {
+                  margin: "2px 0",
+                  width: 15,
+                  height: 2,
+                  backgroundColor: "black",
+                  transition: "all 0.3s",
+                  transform: "translate(0, -6px) rotate(-45deg)",
+                }
+              : {
+                  margin: "2px 0",
+                  width: 15,
+                  height: 2,
+                  backgroundColor: "black",
+                  transition: "all 0.3s",
+                }
+          }
+        ></span>
+      </div>
     </StyledWrapper>
   );
 }
 
 export default Navbar;
-
-// position: absolute;
-// width: 20px;
-// height: 20px;
-// top: 0;
-// left: 50%;
-// transform-origin: 0 0;
-// transform: rotate(45deg) translate(-50%, -50%);

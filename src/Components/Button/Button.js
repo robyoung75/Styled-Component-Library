@@ -1,6 +1,7 @@
-import React from "react";
 
-import { StyledButton } from "../../Styles/Styles";
+// rendered in App as a child of Card and in Modal
+
+import { StyledButton } from "../../Styles/ButtonStyles";
 
 function Button({ primary, color, children, onClick }) {
   return (

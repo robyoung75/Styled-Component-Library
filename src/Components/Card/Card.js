@@ -1,4 +1,6 @@
-import { StyledCard } from "../../Styles/Styles";
+// Rendered by App
+
+import { StyledCard } from "../../Styles/CardStyles";
 
 function Card({
   children,
