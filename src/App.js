@@ -16,7 +16,7 @@ import { StyledWrapper, Title, SubTitle, StyledP } from "./Styles/Styles";
 import {
   handleSubmitUser,
   handleEvent,
-  handleCancel
+  handleCancel,
 } from "./Assets/eventHandlers/eventHandlers";
 
 // images
@@ -39,7 +39,7 @@ function App() {
     <StyledWrapper
       isFlex
       flexDirection="column"
-      backgroundColor="darkgrey"
+      backgroundColor="lightgrey"
       alignItems="center"
     >
       <Navbar />
@@ -160,7 +160,7 @@ function App() {
         <Button
           onClick={(e) => {
             e.preventDefault();
-            handleCancel(userData.firstName, userData.lastName, setUserData)
+            handleCancel(userData.firstName, userData.lastName, setUserData);
           }}
           color="#8f44fd"
         >

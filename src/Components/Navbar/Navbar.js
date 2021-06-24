@@ -13,11 +13,19 @@ import {
 
 import { handleEvent } from "../../Assets/eventHandlers/eventHandlers";
 
+import Hamburger from "../Hamburger/Hamburger";
+
 function Navbar() {
   const [isActive, setIsActive] = useState(true);
 
   return (
-    <StyledWrapper className="navbar" isFlex height="0" zIndex="3">
+    <StyledWrapper
+      className="navbar"
+      isFlex
+      height="0"
+      zIndex="3"
+      flexDirection="column"
+    >
       <StyledList className="navbar__list" isActive={isActive}>
         <StyledListItem>
           <StyledListItemLink>Home</StyledListItemLink>
@@ -53,90 +61,25 @@ function Navbar() {
         </StyledListItem>
       </StyledList>
 
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-          backgroundColor: "pink",
-          borderRadius: "50%",
-          width: 45,
-          height: 45,
-          position: "absolute",
-          right: 5,
-          top: 5,
-          margin: 0,
-          padding: 0,
-          zIndex: 999,
-        }}
+      <Hamburger
+        isFlex
+        flexDirection="column"
+        justifyContent="center"
+        alignItems="center"
+        backgroundColor="pink"
+        borderRadius="50%"
+        width="35px"
+        height="35px"
+        zIndex="999"
+        position="absolute"
+        right="3px"
+        top="3px"
         onClick={(e) => {
           e.preventDefault();
           handleEvent(isActive, setIsActive);
         }}
-      >
-        <span
-          style={
-            !isActive
-              ? {
-                  margin: "2px 0",
-                  width: 15,
-                  height: 2,
-                  backgroundColor: "black",
-                  transition: "all 0.3s",
-                  transform: "translate(0, 6px) rotate(45deg)",
-                }
-              : {
-                  margin: "2px 0",
-                  width: 15,
-                  height: 2,
-                  backgroundColor: "black",
-                  transition: "all 0.3s",
-                }
-          }
-        ></span>
-        <span
-          style={
-            !isActive
-              ? {
-                  margin: "2px 0",
-                  width: 15,
-                  height: 2,
-                  backgroundColor: "black",
-                  transition: "all 0.3s",
-                  transform: "translateX(100px)",
-                  opacity: 0,
-                }
-              : {
-                  margin: "2px 0",
-                  width: 15,
-                  height: 2,
-                  backgroundColor: "black",
-                  transition: "all 0.3s",
-                }
-          }
-        ></span>
-        <span
-          style={
-            !isActive
-              ? {
-                  margin: "2px 0",
-                  width: 15,
-                  height: 2,
-                  backgroundColor: "black",
-                  transition: "all 0.3s",
-                  transform: "translate(0, -6px) rotate(-45deg)",
-                }
-              : {
-                  margin: "2px 0",
-                  width: 15,
-                  height: 2,
-                  backgroundColor: "black",
-                  transition: "all 0.3s",
-                }
-          }
-        ></span>
-      </div>
+        isActive={isActive}
+      />
     </StyledWrapper>
   );
 }

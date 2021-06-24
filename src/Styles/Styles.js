@@ -15,6 +15,12 @@ const StyledWrapper = styled.div`
   padding: ${(props) => props.padding || " 0"};
   margin: ${(props) => props.margin || "0"};
   z-index: ${(props) => props.zIndex};
+  position: ${(props) => props.position};
+  right: ${props => props.right};
+  top: ${props => props.top};
+  padding: ${props => props.padding};
+  border-radius: ${props => props.borderRadius};
+
 `;
 
 // rendered by > App >
