@@ -19,7 +19,7 @@ const StyledWrapper = styled.div`
   right: ${props => props.right};
   top: ${props => props.top};
   padding: ${props => props.padding};
-  border-radius: ${props => props.borderRadius};
+  border-radius: ${props => props}
 
 `;
 

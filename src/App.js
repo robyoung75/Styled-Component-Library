@@ -39,10 +39,15 @@ function App() {
     <StyledWrapper
       isFlex
       flexDirection="column"
-      backgroundColor="lightgrey"
+      justifyContent="center"
       alignItems="center"
     >
-      <Navbar />
+      <Navbar
+        flexDirection="column"
+      
+        primaryColor="papayawhip"
+        secondaryColor="#d763cd"
+      />
       {modal ? (
         <Modal
           onClickClose={(e) => {

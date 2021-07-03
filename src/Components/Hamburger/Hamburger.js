@@ -11,30 +11,24 @@ function Hamburger({
   isFlex,
   isActive,
   onClick,
-  flexDirection,
-  justifyContent,
-  alignItems,
   backgroundColor,
-  borderRadius,
   width,
   height,
-  zIndex,
-  position,
   right,
   top,
 }) {
   return (
     <StyledWrapper
-      isFlex={isFlex}
-      flexDirection={flexDirection}
-      justifyContent={justifyContent}
-      alignItems={alignItems}
+      isFlex
+      flexDirection="column"
+      justifyContent="center"
+      alignItems="center"
       backgroundColor={backgroundColor}
-      borderRadius={borderRadius}
+      borderRadius="50%"
       width={width}
       height={height}
-      zIndex={zIndex}
-      position={position}
+      zIndex="999"
+      position="absolute"
       right={right}
       top={top}
       onClick={onClick}

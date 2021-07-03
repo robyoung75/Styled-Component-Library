@@ -15,7 +15,7 @@ import { handleEvent } from "../../Assets/eventHandlers/eventHandlers";
 
 import Hamburger from "../Hamburger/Hamburger";
 
-function Navbar() {
+function Navbar({ flexDirection, primaryColor, secondaryColor }) {
   const [isActive, setIsActive] = useState(true);
 
   return (
@@ -24,56 +24,95 @@ function Navbar() {
       isFlex
       height="0"
       zIndex="3"
-      flexDirection="column"
+      flexDirection={flexDirection}
+     
     >
-      <StyledList className="navbar__list" isActive={isActive}>
+      <StyledList
+        className="navbar__list"
+        isActive={isActive}
+        isFlex
+        flexDirection={flexDirection}
+        justifyContent="center"
+        alignItems="center"
+      >
         <StyledListItem>
-          <StyledListItemLink>Home</StyledListItemLink>
+          <StyledListItemLink primaryColor={primaryColor}>
+            Home
+          </StyledListItemLink>
         </StyledListItem>
         <StyledListItem className="navbar__listItem">
           <StyledDropdown className="navbar__dropdown">
-            <StyledListItemLink className="navbar__link">
+            <StyledListItemLink
+              className="navbar__link"
+              primaryColor={primaryColor}
+            >
               Dropdown
             </StyledListItemLink>
           </StyledDropdown>
-          <StyledDropdownContent className="navbar__dropdownContent">
-            <StyledDropdownLink>Success #1</StyledDropdownLink>
-            <StyledDropdownLink>Success #1</StyledDropdownLink>
-            <StyledDropdownLink>Success #1</StyledDropdownLink>
-            <StyledDropdownLink>Success #1</StyledDropdownLink>
+          <StyledDropdownContent
+            className="navbar__dropdownContent"
+            isFlex
+            flexDirection="column"
+            justifyContent="center"
+            alignItems="center"
+          >
+            <StyledDropdownLink secondaryColor={secondaryColor}>
+              Success #1
+            </StyledDropdownLink>
+            <StyledDropdownLink secondaryColor={secondaryColor}>
+              Success #1
+            </StyledDropdownLink>
+            <StyledDropdownLink secondaryColor={secondaryColor}>
+              Success #1
+            </StyledDropdownLink>
+            <StyledDropdownLink secondaryColor={secondaryColor}>
+              Success #1
+            </StyledDropdownLink>
           </StyledDropdownContent>
         </StyledListItem>
         <StyledListItem>
-          <StyledListItemLink>About</StyledListItemLink>
+          <StyledListItemLink primaryColor={primaryColor}>
+            About
+          </StyledListItemLink>
         </StyledListItem>
         <StyledListItem className="navbar__listItem">
           <StyledDropdown className="navbar__dropdown">
-            <StyledListItemLink className="navbar__link">
+            <StyledListItemLink
+              className="navbar__link"
+              primaryColor={primaryColor}
+            >
               Dropdown #2
             </StyledListItemLink>
           </StyledDropdown>
-          <StyledDropdownContent className="navbar__dropdownContent">
-            <StyledDropdownLink>Success #2</StyledDropdownLink>
-            <StyledDropdownLink>Success #2</StyledDropdownLink>
-            <StyledDropdownLink>Success #2</StyledDropdownLink>
-            <StyledDropdownLink>Success #2</StyledDropdownLink>
+          <StyledDropdownContent
+            className="navbar__dropdownContent"
+            isFlex
+            flexDirection="column"
+            justifyContent="center"
+            alignItems="center"
+          >
+            <StyledDropdownLink secondaryColor={secondaryColor}>
+              Success #2
+            </StyledDropdownLink>
+            <StyledDropdownLink secondaryColor={secondaryColor}>
+              Success #2
+            </StyledDropdownLink>
+            <StyledDropdownLink secondaryColor={secondaryColor}>
+              Success #2
+            </StyledDropdownLink>
+            <StyledDropdownLink secondaryColor={secondaryColor}>
+              Success #2
+            </StyledDropdownLink>
           </StyledDropdownContent>
         </StyledListItem>
       </StyledList>
 
       <Hamburger
-        isFlex
-        flexDirection="column"
-        justifyContent="center"
-        alignItems="center"
-        backgroundColor="pink"
-        borderRadius="50%"
+        backgroundColor="rgba(143,68,253)"
         width="35px"
         height="35px"
-        zIndex="999"
-        position="absolute"
-        right="3px"
-        top="3px"
+        right="10px"
+        top="10px"
         onClick={(e) => {
           e.preventDefault();
           handleEvent(isActive, setIsActive);

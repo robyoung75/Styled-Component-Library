@@ -1,17 +1,15 @@
 import styled from "styled-components";
 
+import { flexStyles } from "./Styles";
 // Navbar Styles
 const StyledList = styled.ul`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  ${(props) => props.isFlex && flexStyles}
   list-style: none;
-  background-color: grey;
+  background-color: ${(props) => props.backgroundColor || "green"};
   padding: 0 1rem;
   margin: 0;
   width: 100%;
-  opacity: 1;
+  z-index: 999;
   transform: ${(props) =>
     props.isActive ? "translateY(-110%)" : "translateY(0%)"};
 `;
@@ -20,7 +18,6 @@ const StyledListItem = styled.li`
   position: relative;
   padding: 25px;
   height: 100%;
-
   margin: 3px;
   cursor: pointer;
   width: 100%;
@@ -35,11 +32,8 @@ const StyledListItem = styled.li`
 const StyledDropdown = styled.div``;
 
 const StyledDropdownContent = styled.div`
-  background-color: yellow;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  ${(props) => props.isFlex && flexStyles}
+  background-color: ${(props) => props.backgroundColor || "lightgrey"};
   padding: 30px 15px;
   margin: 0;
   position: absolute;
@@ -58,14 +52,14 @@ const StyledDropdownContent = styled.div`
     width: 20px;
     height: 20px;
     top: 5px;
-    background-color: orange;
+    background-color: ${(props) => props.backgroundColor || "lightgrey"};
     transform-orign: 0 0;
     transform: rotate(45deg) translate(-50%, -50%);
   }
 `;
 
 const StyledListItemLink = styled.a`
-  color: pink;
+  color: ${(props) => props.primaryColor};
   text-decoration: none;
   display: block;
   text-align: center;
@@ -78,7 +72,7 @@ const StyledListItemLink = styled.a`
 
 const StyledDropdownLink = styled.a`
   text-decoration: none;
-  color: red;
+  color: ${(props) => props.secondaryColor};
   white-space: nowrap;
   transition: all 0.3s;
 
