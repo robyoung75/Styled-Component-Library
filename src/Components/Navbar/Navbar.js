@@ -15,7 +15,12 @@ import { handleEvent } from "../../Assets/eventHandlers/eventHandlers";
 
 import Hamburger from "../Hamburger/Hamburger";
 
-function Navbar({ flexDirection, primaryColor, secondaryColor }) {
+function Navbar({
+  flexDirection,
+  primaryColor,
+  secondaryColor,
+  listItemWidth,
+}) {
   const [isActive, setIsActive] = useState(true);
 
   return (
@@ -25,7 +30,6 @@ function Navbar({ flexDirection, primaryColor, secondaryColor }) {
       height="0"
       zIndex="3"
       flexDirection={flexDirection}
-     
     >
       <StyledList
         className="navbar__list"
@@ -35,7 +39,7 @@ function Navbar({ flexDirection, primaryColor, secondaryColor }) {
         justifyContent="center"
         alignItems="center"
       >
-        <StyledListItem>
+        <StyledListItem listItemWidth={listItemWidth}>
           <StyledListItemLink primaryColor={primaryColor}>
             Home
           </StyledListItemLink>

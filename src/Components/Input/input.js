@@ -1,5 +1,5 @@
-import { StyledP } from "../../Styles/Styles";
-import { StyledInput, StyledLabel } from "../../Styles/InputStyles";
+import { StyledP, StyledLabel } from "../../Styles/Styles";
+import { StyledInput } from "../../Styles/InputStyles";
 
 
 

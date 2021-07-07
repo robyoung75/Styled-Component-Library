@@ -20,6 +20,9 @@ const StyledWrapper = styled.div`
   top: ${props => props.top};
   padding: ${props => props.padding};
   border-radius: ${props => props}
+  border: ${props => props.border || "none"}
+  border-bottom: ${props => props.borderBottom || "none"}
+ 
 
 `;
 
@@ -41,9 +44,10 @@ const StyledP = styled.p`
   padding: ${(props) => props.padding || 0};
   margin: ${(props) => props.margin || 0};
   text-align: ${(props) => props.textAlign};
+  font-size: ${(props) => props.fontSize}
 `;
 
-// Navbar Styles
+const StyledLabel = styled.label``;
 
 
 export {
@@ -52,5 +56,6 @@ export {
   Title,
   SubTitle,
   StyledP,
+  StyledLabel
   
 };

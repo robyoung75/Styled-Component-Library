@@ -13,6 +13,7 @@ function Card({
   background = "#100F10",
   border,
   width,
+  height,
   borderRadius,
 }) {
   return (
@@ -26,6 +27,7 @@ function Card({
       background={background}
       border={border}
       width={width}
+      height={height}
       borderRadius={borderRadius}
     >
       {children}

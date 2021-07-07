@@ -5,7 +5,7 @@ import { flexStyles } from "./Styles";
 const StyledList = styled.ul`
   ${(props) => props.isFlex && flexStyles}
   list-style: none;
-  background-color: ${(props) => props.backgroundColor || "green"};
+  background-color: ${(props) => props.backgroundColor || "grey"};
   padding: 0 1rem;
   margin: 0;
   width: 100%;
@@ -19,8 +19,7 @@ const StyledListItem = styled.li`
   padding: 25px;
   height: 100%;
   margin: 3px;
-  cursor: pointer;
-  width: 100%;
+  width: ${props => props.listItemWidth || "100%"};
 
   &:hover .navbar__dropdownContent {
     opacity: 1;
@@ -67,6 +66,7 @@ const StyledListItemLink = styled.a`
   &:hover {
     transform: scale(1.15);
     color: magenta;
+    cursor: pointer;
   }
 `;
 
@@ -75,7 +75,7 @@ const StyledDropdownLink = styled.a`
   color: ${(props) => props.secondaryColor};
   white-space: nowrap;
   transition: all 0.3s;
-
+  cursor: pointer;
   font-size: 1rem;
   &:hover {
     transform: translateX(5px);

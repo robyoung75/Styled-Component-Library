@@ -1,10 +1,11 @@
 import styled, { css } from "styled-components";
 
 
+
+
 const StyledInput = styled.input.attrs((props) => ({
   type: props.type || "text",
   placeholder: props.placeholder || "Enter text",
-
   size: props.size || "",
 }))`
   font-size: 0.75rem;
@@ -20,6 +21,4 @@ const StyledInput = styled.input.attrs((props) => ({
   }
 `;
 
-const StyledLabel = styled.label``;
-
-export {StyledInput, StyledLabel}
+export { StyledInput};

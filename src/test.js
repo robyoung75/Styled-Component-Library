@@ -1,21 +1,36 @@
-import styled from "styled-components";
+import { useState } from "react";
 
-const StyledInput = styled.input.attrs((props) => ({
-  type: props.type,
-  placeholder: props.placeholder,
+import Hamburger from "./Hamburger";
 
-  size: props.size || ""
-}))`
-  font-size: 0.75rem;
-  padding: 0.5rem;
-  margin: 0.75rem 0;
-  color: ${(props) => props.color};
-  background: ${(props) => props.background};
-  border: none;
-  border-radius: 0.25rem;
-  width: ${(props) => props.width};
-  ::placeholder {
-    color: ${(props) => props.color};
-  }
-`;
+import { StyledWrapper } from "./HamburgerStyles";
 
+export default function App() {
+  const [isActive, setIsActive] = useState(true);
+
+  const handleSetActive = (e) => {
+    e.preventDefault();
+    isActive ? setIsActive(false) : setIsActive(true);
+  };
+  return (
+    <StyledWrapper
+      className="App"
+      isFlex
+      flexDirection="column"
+      justifyContent="center"
+      alignItems="center"
+    >
+      <h1>@LearnMern</h1>
+      <h2>Styled Components: Hamburger</h2>
+      <Hamburger
+        isFlex
+        isActive={isActive}
+        backgroundColor="dodgerblue"
+        onClick={handleSetActive}
+        width="50px"
+        height="50px"
+        right="50px"
+        top="50px"
+      />
+    </StyledWrapper>
+  );
+}

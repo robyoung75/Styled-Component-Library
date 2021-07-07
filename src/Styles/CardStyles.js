@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import {flexStyles} from '../Styles/Styles'
+import { flexStyles } from "../Styles/Styles";
 
 // StyledCard rendered by > App > Modal
 const StyledCard = styled.div`
@@ -8,10 +8,9 @@ const StyledCard = styled.div`
   padding: ${(props) => props.padding};
   background: ${(props) => props.background};
   border: ${(props) => props.border};
-  width: ${(props) => props.width || "100%"};
-  min-height: ${(props) => props.minHeight || "400px"};
+  width: ${(props) => props.width || "auto"};
+  height: ${(props) => props.height || 'auto'};
   border-radius: ${(props) => props.borderRadius};
-  min-width: 275px;
 `;
 
-export {StyledCard}
+export { StyledCard };
