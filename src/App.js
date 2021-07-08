@@ -43,15 +43,19 @@ function App() {
 
   const [isActive, setActive] = useState(false);
   const [hasBadge, setHasBadge] = useState(false);
+  const [skillsActive, setSkillsActive] = useState(false);
 
   return (
     <StyledWrapper padding="50px">
+   
       <MyCard
         userData={userData}
         isActive={isActive}
         setActive={setActive}
         hasBadge={hasBadge}
         setHasBadge={setHasBadge}
+        skillsActive={skillsActive}
+        setSkillsActive={setSkillsActive}
         src={userData.userImage}
         // Styles
         isFlex
@@ -62,7 +66,7 @@ function App() {
         height="auto"
         borderRadius=".25rem"
         background="#31394d"
-        padding="2rem 0"
+        padding="1rem"
       ></MyCard>
     </StyledWrapper>
   );

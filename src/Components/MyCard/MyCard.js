@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import styled, { css } from "styled-components";
+
 import Card from "../Card/Card";
 import Button from "../Button/Button";
 import Avatar from "../Avatar/Avatar";
@@ -9,6 +11,25 @@ import SocialIcon from "../SocialIcon/SocialIcon";
 import { Title, StyledP, StyledWrapper } from "../../Styles/Styles";
 
 import { handleEvent } from "../../Assets/eventHandlers/eventHandlers";
+
+const flexStyles = css`
+  display: flex;
+  flex-direction: ${(props) => props.flexDirection || "row"};
+  align-items: ${(props) => props.alignItems || "start"};
+  justify-content: ${(props) => props.justifyContent || "start"};
+`;
+const Dropdown = styled.div`
+  ${(props) => props.isFlex && flexStyles}
+  background-color: ${(props) => props.backgroundColor || "grey"};
+
+  margin: 0;
+  width: 100%;
+
+  transform: ${(props) =>
+    props.skillsActive ? "translateY(0%)" : "translateY(-110%)"};
+
+  ${(props) => (props.skillsActive ? "display: block" : "display: none")}
+`;
 
 function MyCard({
   isFlex,
@@ -21,6 +42,8 @@ function MyCard({
   src,
   hasBadge,
   setHasBadge,
+  skillsActive,
+  setSkillsActive,
   margin,
   padding,
   background,
@@ -29,14 +52,6 @@ function MyCard({
   height,
   borderRadius,
 }) {
-  let meterStyle = {
-    webkitAppearance: "none" /* Reset appearance */,
-    border: "1px solid #ccc",
-    borderRadius: "3px",
-
-    background: "blue",
-    boxShadow: "0 5px 5px -5px #333 inset",
-  };
   return (
     <Card
       isFlex={isFlex}
@@ -69,8 +84,6 @@ function MyCard({
       </StyledP>
       <StyledWrapper isFlex justifyContent="space-evenly">
         <Button
-          primary
-          color="red"
           onClick={(e) => {
             e.preventDefault();
             handleEvent(isActive, setActive);
@@ -87,6 +100,16 @@ function MyCard({
           setBadge
         </Button>
       </StyledWrapper>
+      <StyledWrapper isFlex justifyContent="center">
+        <Button
+          onClick={(e) => {
+            e.preventDefault();
+            handleEvent(skillsActive, setSkillsActive);
+          }}
+        >
+          Skills
+        </Button>
+      </StyledWrapper>
       <StyledWrapper
         isFlex
         justifyContent="space-evenly"
@@ -99,25 +122,64 @@ function MyCard({
         <SocialIcon icon="gitHub" color="#fff" size="lg" />
         <SocialIcon icon="linkedin" color="#fff" size="lg" />
       </StyledWrapper>
+      <Dropdown backgroundColor="#31394d" skillsActive={skillsActive}>
+        <StyledWrapper
+          isFlex
+          flexDirection="column"
+          alignItems="center"
+          borderBottom="2px solid grey"
+          padding="1rem"
+        >
+          {" "}
+          <Meter
+            label="Html"
+            value={8}
+            width="250px"
+            height="25px"
+            fontSize=".75rem"
+          >
+            80%
+          </Meter>
+          <Meter
+            label="css"
+            value={7}
+            width="250px"
+            height="25px"
+            fontSize=".75rem"
+          >
+            70%
+          </Meter>
+          <Meter
+            label="JavaScript"
+            value={6}
+            width="250px"
+            height="25px"
+            fontSize=".75rem"
+          >
+            60%
+          </Meter>
+          <Meter
+            label="React"
+            value={8}
+            width="250px"
+            height="25px"
+            fontSize=".75rem"
+          >
+            80%
+          </Meter>
+        </StyledWrapper>
+      </Dropdown>
+
       <StyledWrapper
         isFlex
-        flexDirection="column"
         justifyContent="center"
         alignItems="center"
-        padding="2rem 0"
+        padding="1rem"
       >
-        <Meter label="Html" value={8} width="250px" height="25px">
-          <StyledP>80%</StyledP>
-        </Meter>
-        <Meter label="css" value={7} width="250px" height="25px">
-          <StyledP>70%</StyledP>
-        </Meter>
-        <Meter label="JavaScript" value={6} width="250px" height="25px">
-          <StyledP>60%</StyledP>
-        </Meter>
-        <Meter label="React" value={8} width="250px" height="25px">
-          <StyledP>80%</StyledP>
-        </Meter>
+        <StyledP color="#fff" textAlign="center" fontSize=".5rem">
+          All credit goes to learnMern - Copyright 2021 learnMern - Designed by
+          learnMern
+        </StyledP>
       </StyledWrapper>
     </Card>
   );

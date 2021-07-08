@@ -47,7 +47,10 @@ const StyledP = styled.p`
   font-size: ${(props) => props.fontSize}
 `;
 
-const StyledLabel = styled.label``;
+const StyledLabel = styled.label`
+${props => props.isFlex && flexStyles};
+
+`;
 
 
 export {
