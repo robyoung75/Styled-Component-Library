@@ -1,5 +1,13 @@
 import styled, { css } from "styled-components";
 
+import {device} from '../Styles/Styles'
+
+const StyledHamburger = styled.div`
+  @media ${device.tablet} {
+    display: none;
+  }
+`;
+
 const activeStylesBuns = css`
   transform: translate(0, 0) rotate(0deg);
 `;
@@ -37,5 +45,4 @@ const StyledHamburgerBottom = styled.span`
   transform: translate(0, -6px) rotate(-45deg);
   ${(props) => props.isActive && activeStylesBuns}
 `;
-
-export { StyledHamburgerTop, StyledHamburgerMiddle, StyledHamburgerBottom };
+export { StyledHamburger, StyledHamburgerTop, StyledHamburgerMiddle, StyledHamburgerBottom };

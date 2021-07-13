@@ -12,7 +12,7 @@ function Avatar({ isActive, hasBadge, name, src }) {
     <StyledAvatar isActive={isActive}>
       {hasBadge && <StyledBadge />}
       {src ? (
-        <StyledImage src={src} alt={name} />
+        <StyledImage src={src} alt={name} ></StyledImage>
       ) : (
         <StyledSpan isActive={isActive}>{name}</StyledSpan>
       )}

@@ -1,6 +1,7 @@
 import React from "react";
 import { StyledWrapper } from "../../Styles/Styles";
 import {
+  StyledHamburger,
   StyledHamburgerTop,
   StyledHamburgerMiddle,
   StyledHamburgerBottom,
@@ -8,16 +9,16 @@ import {
 
 // rendered by Navbar
 function Hamburger({
-  isFlex,
   isActive,
   onClick,
   backgroundColor,
   width,
   height,
   right,
-  top,
+  top
 }) {
   return (
+    <StyledHamburger isFlex>
     <StyledWrapper
       isFlex
       flexDirection="column"
@@ -33,11 +34,12 @@ function Hamburger({
       top={top}
       onClick={onClick}
     >
-      <StyledHamburgerTop isActive={isActive} width={width} />
-      <StyledHamburgerMiddle isActive={isActive} width={width} />
-      <StyledHamburgerBottom isActive={isActive} width={width} />
+      <StyledHamburgerTop isActive={isActive} />
+      <StyledHamburgerMiddle isActive={isActive} />
+      <StyledHamburgerBottom isActive={isActive} />
     </StyledWrapper>
-  );
+  </StyledHamburger>
+);
 }
 
 export default Hamburger;

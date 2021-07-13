@@ -37,13 +37,15 @@ const StyledAvatar = styled.span`
   height: ${size};
   padding: 5px;
   border-radius: 50%;
-
+ 
+  
   ${(props) => props.isActive && activeStyles}
 `;
 
 const StyledImage = styled.img`
   ${sharedStyles};
   object-fit: cover;
+  
 `;
 
 const StyledSpan = styled.span`
@@ -53,6 +55,7 @@ const StyledSpan = styled.span`
   font-size: 24px;
   font-weight: 600;
   ${sharedStyles}
+
 `;
 
 const StyledBadge = styled.span`

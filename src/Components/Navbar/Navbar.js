@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 // Styles Styled Components
-import { StyledWrapper } from "../../Styles/Styles";
+import { StyledWrapper, StyledP } from "../../Styles/Styles";
 import {
   StyledList,
   StyledListItem,
@@ -20,31 +20,38 @@ function Navbar({
   primaryColor,
   secondaryColor,
   listItemWidth,
+  backgroundColor,
+  display,
+  isFlex,
 }) {
   const [isActive, setIsActive] = useState(true);
 
   return (
     <StyledWrapper
-      className="navbar"
+      backgroundColor="#31394d"
+      height="55px"
+      position="fixed"
       isFlex
-      height="0"
-      zIndex="3"
-      flexDirection={flexDirection}
+      justifyContent="center"
+      zIndex="10"
     >
       <StyledList
         className="navbar__list"
         isActive={isActive}
-        isFlex
+        isFlex={isFlex}
         flexDirection={flexDirection}
-        justifyContent="center"
-        alignItems="center"
+        backgroundColor={backgroundColor}
+        justifyContent="space-evenly"
       >
         <StyledListItem listItemWidth={listItemWidth}>
           <StyledListItemLink primaryColor={primaryColor}>
             Home
           </StyledListItemLink>
         </StyledListItem>
-        <StyledListItem className="navbar__listItem">
+        <StyledListItem
+          className="navbar__listItem"
+          listItemWidth={listItemWidth}
+        >
           <StyledDropdown className="navbar__dropdown">
             <StyledListItemLink
               className="navbar__link"
@@ -54,11 +61,12 @@ function Navbar({
             </StyledListItemLink>
           </StyledDropdown>
           <StyledDropdownContent
-            className="navbar__dropdownContent"
-            isFlex
+            className="navbar__dropdownContentLeft"
+            isFlex={isFlex}
             flexDirection="column"
             justifyContent="center"
             alignItems="center"
+            backgroundColor="rgba(255,255,255,.9)"
           >
             <StyledDropdownLink secondaryColor={secondaryColor}>
               Success #1
@@ -74,12 +82,15 @@ function Navbar({
             </StyledDropdownLink>
           </StyledDropdownContent>
         </StyledListItem>
-        <StyledListItem>
+        <StyledListItem listItemWidth={listItemWidth}>
           <StyledListItemLink primaryColor={primaryColor}>
             About
           </StyledListItemLink>
         </StyledListItem>
-        <StyledListItem className="navbar__listItem">
+        <StyledListItem
+          className="navbar__listItem"
+          listItemWidth={listItemWidth}
+        >
           <StyledDropdown className="navbar__dropdown">
             <StyledListItemLink
               className="navbar__link"
@@ -89,11 +100,12 @@ function Navbar({
             </StyledListItemLink>
           </StyledDropdown>
           <StyledDropdownContent
-            className="navbar__dropdownContent"
-            isFlex
+            className="navbar__dropdownContentRight"
+            isFlex={isFlex}
             flexDirection="column"
             justifyContent="center"
             alignItems="center"
+            backgroundColor="rgba(255,255,255,.9)"
           >
             <StyledDropdownLink secondaryColor={secondaryColor}>
               Success #2
