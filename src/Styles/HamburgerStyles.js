@@ -1,6 +1,14 @@
 import styled, { css } from "styled-components";
 
-import {device} from '../Styles/Styles'
+import { device } from "../Styles/Styles";
+
+const hamburgerStyles = css`
+  width: ${(props) => props.bunWidth};
+  height: 2px;
+  background-color: ${(props) => props.bunColor};
+  margin: 2px 0;
+  transition: all 0.5s;
+`;
 
 const StyledHamburger = styled.div`
   @media ${device.tablet} {
@@ -17,32 +25,25 @@ const activeStylesMiddle = css`
 `;
 
 const StyledHamburgerTop = styled.span`
-  width: 15px;
-  height: 2px;
-  background-color: black;
-  margin: 2px 0;
-  transition: all 0.5s;
+  ${hamburgerStyles}
   transform: translate(0, 6px) rotate(45deg);
   ${(props) => props.isActive && activeStylesBuns}
 `;
 
 const StyledHamburgerMiddle = styled.span`
-  width: 15px;
-  height: 2px;
-  background-color: black;
-  margin: 2px 0;
-  transition: all 0.5s;
+${hamburgerStyles}
   transform: translateX(100px);
   ${(props) => props.isActive && activeStylesMiddle}
 `;
 
 const StyledHamburgerBottom = styled.span`
-  width: 15px;
-  height: 2px;
-  background-color: black;
-  margin: 2px 0;
-  transition: all 0.5s;
+${hamburgerStyles}
   transform: translate(0, -6px) rotate(-45deg);
   ${(props) => props.isActive && activeStylesBuns}
 `;
-export { StyledHamburger, StyledHamburgerTop, StyledHamburgerMiddle, StyledHamburgerBottom };
+export {
+  StyledHamburger,
+  StyledHamburgerTop,
+  StyledHamburgerMiddle,
+  StyledHamburgerBottom,
+};

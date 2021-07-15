@@ -78,11 +78,13 @@ function ProfileCard({
           background="linear-gradient(to bottom right, #8162ce, #f54ba5)"
           fontSize="1rem"
           height="40px"
-          padding="0.25rem, 1rem"
+          padding="0.25rem 1rem"
+          margin="1rem"
           border="none"
           borderRadius="40px"
           boxShadow="0 13px 26px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.16)"
           color="rgba(255,255,255,.89)"
+          hoverColor="#f54ba5"
           onClick={(e) => {
             e.preventDefault();
             handleEvent(isActive, setActive);
@@ -94,11 +96,13 @@ function ProfileCard({
           background="linear-gradient(to bottom right, #8162ce, #f54ba5)"
           fontSize="1rem"
           height="40px"
-          padding="0.25rem, 1rem"
+          padding="0.25rem 1rem"
+          margin="1rem"
           border="none"
           borderRadius="40px"
           boxShadow="0 13px 26px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.16)"
           color="rgba(255,255,255,.89)"
+          hoverColor="#f54ba5"
           onClick={(e) => {
             e.preventDefault();
             handleEvent(hasBadge, setHasBadge);
@@ -117,11 +121,13 @@ function ProfileCard({
           background="linear-gradient(to bottom right, #8162ce, #f54ba5)"
           fontSize="1rem"
           height="40px"
-          padding="0.25rem, 1rem"
+          padding="0.25rem 1rem"
+          margin="1rem"
           border="none"
           borderRadius="40px"
           boxShadow="0 13px 26px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.16)"
           color="rgba(255,255,255,.89)"
+          hoverColor="#f54ba5"
           onClick={(e) => {
             e.preventDefault();
             handleEvent(hasImg, setHasImg);
@@ -133,11 +139,13 @@ function ProfileCard({
           background="linear-gradient(to bottom right, #8162ce, #f54ba5)"
           fontSize="1rem"
           height="40px"
-          padding="0.25rem, 1rem"
+          padding="0.25rem 1rem"
+          margin="1rem"
           border="none"
           borderRadius="40px"
           boxShadow="0 13px 26px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.16)"
           color="rgba(255,255,255,.89)"
+          hoverColor="#f54ba5"
           onClick={(e) => {
             e.preventDefault();
             handleEvent(skillsActive, setSkillsActive);
@@ -153,10 +161,10 @@ function ProfileCard({
         padding="1rem"
       >
         {" "}
-        <SocialIcon icon="instagram" color="#fff" size="lg" />
-        <SocialIcon icon="facebook" color="#fff" size="lg" />
-        <SocialIcon icon="gitHub" color="#fff" size="lg" />
-        <SocialIcon icon="linkedin" color="#fff" size="lg" />
+        <SocialIcon icon="instagram" />
+        <SocialIcon icon="facebook" />
+        <SocialIcon icon="gitHub" />
+        <SocialIcon icon="linkedin" />
       </StyledWrapper>
       <Dropdown backgroundColor="#31394d" skillsActive={skillsActive}>
         <StyledWrapper
@@ -170,37 +178,23 @@ function ProfileCard({
           <Meter
             label="Html"
             value={8}
-            width="250px"
+            width="200px"
             height="25px"
             fontSize=".75rem"
+            minVal={0}
+            maxVal={10}
+            color="rgba(255,255,255,.6)"
+            backgroundColor="rgba(255,255,255,.6)"
           >
             80%
           </Meter>
-          <Meter
-            label="css"
-            value={7}
-            width="250px"
-            height="25px"
-            fontSize=".75rem"
-          >
+          <Meter label="css" value={7}>
             70%
           </Meter>
-          <Meter
-            label="JavaScript"
-            value={6}
-            width="250px"
-            height="25px"
-            fontSize=".75rem"
-          >
+          <Meter label="JavaScript" value={6}>
             60%
           </Meter>
-          <Meter
-            label="React"
-            value={8}
-            width="250px"
-            height="25px"
-            fontSize=".75rem"
-          >
+          <Meter label="React" value={8}>
             80%
           </Meter>
         </StyledWrapper>

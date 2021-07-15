@@ -46,4 +46,11 @@ function SocialIcon({
   );
 }
 
+SocialIcon.defaultProps = {
+  icon: "gitHub",
+  color: 'rgba(255,255,255,.6)',
+ 
+  size: 'lg',
+}
+
 export default SocialIcon;

@@ -6,7 +6,7 @@ const StyledList = styled.ul`
   ${(props) => props.isFlex && flexStyles}
 
   list-style: none;
-  background-color: ${(props) => props.backgroundColor || "grey"};
+  background-color: ${(props) => props.backgroundColor};
   padding: 0;
   margin: 0;
   z-index: 8;
@@ -23,10 +23,10 @@ const StyledList = styled.ul`
 `;
 
 const StyledListItem = styled.li`
-  padding: 25px;
+  padding: 2rem;
   height: 100%;
-  margin: 3px;
-  width: ${(props) => props.listItemWidth || "100%"};
+ 
+  width: ${(props) => props.listItemWidth};
 
   &:hover .navbar__dropdownContentLeft {
     opacity: 1;
@@ -44,13 +44,13 @@ const StyledListItem = styled.li`
 
   .navbar__dropdownContentRight {
     @media ${device.tablet} {
-      left: 87%;
+      left: ${(props) => props.left || "62%"};
     }
   }
 
   .navbar__dropdownContentLeft {
     @media ${device.tablet} {
-      left: 37%;
+      left: ${(props) => props.left || "37%"};
     }
   }
 `;
@@ -62,11 +62,11 @@ const StyledDropdown = styled.div`
 
 const StyledDropdownContent = styled.div`
   ${(props) => props.isFlex && flexStyles}
-  background-color: ${(props) => props.backgroundColor};
+  background-color: ${(props) => props.backgroundColorDropdown};
   padding: 1.5rem 1rem;
   margin: 0;
   position: absolute;
-  left: 50%;
+  left: ${(props) => props.left};
   transform: translate(-50%, 15px);
   border-radius: 0.5rem;
   transition: opacity 0.5s;
@@ -80,7 +80,7 @@ const StyledDropdownContent = styled.div`
     width: 1rem;
     height: 1rem;
     top: 0.25rem;
-    background-color: ${(props) => props.backgroundColor};
+    background-color: ${(props) => props.backgroundColorDropdown};
 
     transform: rotate(45deg) translate(-50%, -50%);
   }
@@ -94,7 +94,7 @@ const StyledListItemLink = styled.a`
   transition: all 0.3s;
   &:hover {
     transform: scale(1.15);
-    color: #8162ce;
+    color: ${props => props.secondaryColor};
     cursor: pointer;
   }
 `;

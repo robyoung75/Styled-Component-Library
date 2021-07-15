@@ -2,15 +2,8 @@ import styled, { css } from "styled-components";
 import {sharedStyles} from './Styles'
 // Styled Button rendered by > App > Modal
 const StyledButton = styled.button`
-  ${sharedStyles}
+  ${sharedStyles};
  
-  font-size: 1em;
-  height: 40px;
-  margin: 1em;
-  padding: 0.25em 1em;
-  border: none;
-  
-  box-shadow: 0 13px 26px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.16);
 
 
 
@@ -18,13 +11,12 @@ const StyledButton = styled.button`
     cursor: pointer;
     border: solid 1px #da59b1;
 
-    color: #da59b1;
-    background: #ffffff;
+    color: ${props => props.hoverColor};
+    background: rgba(255,255,255,.89);
 
-    border-color: linear-gradient(to top right, #8162ce, #f54ba5);
-    border-radius: 30px;
+
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.16);
-  }
+  };
 `;
 
 export { StyledButton };

@@ -1,19 +1,18 @@
 import styled, { css } from "styled-components";
 
 const StyledMeter = styled.meter`
-  width: 200px;
-  height: 20px;
+  width: ${(props) => props.width};
+  height: ${(props) => props.height};
 
-  
   &::-webkit-meter-bar {
     background: none;
-    background-color: lightgrey;
+    background-color: ${(props) => props.backgroundColor};
     box-shadow: 0 3px 3px -3px #333 inset;
   }
 
   &::-webkit-meter-optimum-value {
     box-shadow: 0 3px 3px -3px #999 inset;
-    background-image: linear-gradient(90deg, #8162ce, #f54ba5);
+    background-image: ${props => props.backgroundImage};
     background-size: 100% 100%;
   }
 `;

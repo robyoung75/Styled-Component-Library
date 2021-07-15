@@ -53,6 +53,7 @@ const sharedStyles = css`
   transform: ${(props) => props.transform};
   font-size: ${(props) => props.fontSize};
   color: ${props => props.color};
+  opacity: ${props => props.opacity}
 `;
 
 // shared styles for Typography, p, h1 - h6

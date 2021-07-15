@@ -26,14 +26,19 @@ function Navbar({
   listItemWidth,
   backgroundColor,
   isFlex,
+  justifyContent,
+  alignItems,
+  backgroundColorDropDown,
+  left,
+  height,
 }) {
   return (
     <StyledWrapper
-      backgroundColor="#31394d"
-      height="55px"
+      backgroundColor={backgroundColor}
+      height={height}
       position="fixed"
       isFlex
-      justifyContent="center"
+      justifyContent={justifyContent}
       zIndex="3"
     >
       <StyledList
@@ -64,10 +69,11 @@ function Navbar({
           <StyledDropdownContent
             className="navbar__dropdownContentLeft"
             isFlex={isFlex}
-            flexDirection="column"
-            justifyContent="center"
-            alignItems="center"
-            backgroundColor="rgba(255,255,255,.9)"
+            flexDirection={flexDirection}
+            justifyContent={justifyContent}
+            alignItems={justifyContent}
+            backgroundColorDropdown={backgroundColorDropDown}
+            left={left}
           >
             <StyledDropdownLink secondaryColor={secondaryColor}>
               Success #1
@@ -83,18 +89,7 @@ function Navbar({
             </StyledDropdownLink>
           </StyledDropdownContent>
         </StyledListItem>
-        <StyledListItem
-          listItemWidth={listItemWidth}
-          onClick={(e) => {
-            e.preventDefault();
-            handleEvent(modalActive, setModalActive);
-            handleEvent(isActive, setActive);
-          }}
-        >
-          <StyledListItemLink primaryColor={primaryColor}>
-            Login
-          </StyledListItemLink>
-        </StyledListItem>
+
         <StyledListItem
           className="navbar__listItem"
           listItemWidth={listItemWidth}
@@ -110,10 +105,11 @@ function Navbar({
           <StyledDropdownContent
             className="navbar__dropdownContentRight"
             isFlex={isFlex}
-            flexDirection="column"
-            justifyContent="center"
-            alignItems="center"
-            backgroundColor="rgba(255,255,255,.9)"
+            flexDirection={flexDirection}
+            justifyContent={justifyContent}
+            alignItems={justifyContent}
+            backgroundColorDropdown={backgroundColorDropDown}
+            left={left}
           >
             <StyledDropdownLink secondaryColor={secondaryColor}>
               Success #2
@@ -129,15 +125,22 @@ function Navbar({
             </StyledDropdownLink>
           </StyledDropdownContent>
         </StyledListItem>
+        <StyledListItem
+          listItemWidth={listItemWidth}
+          onClick={(e) => {
+            e.preventDefault();
+            handleEvent(modalActive, setModalActive);
+            handleEvent(isActive, setActive);
+          }}
+        >
+          <StyledListItemLink primaryColor={primaryColor}>
+            Login
+          </StyledListItemLink>
+        </StyledListItem>
       </StyledList>
 
       <Hamburger
         isActive={isActive}
-        backgroundColor="rgba(143,68,253)"
-        width="35px"
-        height="35px"
-        right="10px"
-        top="10px"
         onClick={(e) => {
           e.preventDefault();
           handleEvent(isActive, setActive);
@@ -146,5 +149,18 @@ function Navbar({
     </StyledWrapper>
   );
 }
+
+Navbar.defaultProps = {
+  flexDirection: "column",
+  justifyContent: "center",
+  alignItems: "alignItems",
+  primaryColor: "rgba(255,255,255,.89)",
+  secondaryColor: "rgba(131,58,180,1)",
+  backgroundColor: "#31394d",
+  listItemWidth: "100%",
+  backgroundColorDropDown: "rgba(255,255,255,.9)",
+  left: "50%",
+  height: "55px",
+};
 
 export default Navbar;

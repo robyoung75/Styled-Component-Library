@@ -41,25 +41,22 @@ function App() {
   return (
     <StyledWrapper isFlex flexDirection="column">
       <Navbar
-      isActive={isActive}
-      setActive={setActive}
+        isActive={isActive}
+        setActive={setActive}
         modalActive={modalActive}
         setModalActive={setModalActive}
         isFlex
-        flexDirection="column"
-        primaryColor="rgba(255,255,255,.89)"
-        secondaryColor="rgba(131,58,180,1)"
-        backgroundColor="#31394d"
       ></Navbar>
 
       <StyledWrapper
         isFlex
-        flexDirection="column"
-        height="1000px"
+        flexDirection={"column"}
+        height="auto"
         background="linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(49,57,77,1) 50%, rgba(131,58,180,1) 100%)"
         borderBottom="2px solid #fff"
         padding="75px 10px 0 10px"
         alignItems="center"
+        opacity={modalActive ? 0.5 : null}
       >
         <Title color="rgba(255,255,255,.89)" padding="1rem">
           Styled-Components
@@ -91,6 +88,7 @@ function App() {
       <StyledWrapper
         height="1000px"
         background="linear-gradient(180deg, rgba(131,58,180,1) 0%, rgba(49,57,77,1) 50%, rgba(0,0,0,1) 100%)"
+        opacity={modalActive ? 0.4 : null}
       >
         {" "}
         <StyledP color="rgba(255,255,255,.6)">{userData.userName}</StyledP>
@@ -104,11 +102,9 @@ function App() {
         zIndex="8"
         transform="translate(-50%, -50%)"
         width="auto"
-        
       >
         {modalActive ? (
           <Login
-         
             modalActive={modalActive}
             setModalActive={setModalActive}
             handleEvent={handleEvent}
@@ -128,5 +124,7 @@ function App() {
     </StyledWrapper>
   );
 }
+
+
 
 export default App;

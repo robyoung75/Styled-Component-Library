@@ -1,29 +1,52 @@
-import React from "react";
-
+import { StyledLabel, StyledP } from "../../Styles/Styles";
 import { StyledMeter } from "../../Styles/MeterStyles";
 
-import styled from "styled-components";
-import { StyledLabel, StyledP } from "../../Styles/Styles";
-
-const SyledLabel = styled.label``;
-function Meter({ width, height, value, label, children, fontSize }) {
+function Meter({
+  width,
+  height,
+  value,
+  label,
+  children,
+  fontSize,
+  minVal,
+  maxVal,
+  color,
+  backgroundColor,
+  backgroundImage,
+}) {
   return (
     <StyledLabel>
-   
-      <StyledP color="#fff" fontSize={fontSize}>{label ? label : null}</StyledP>
-      <StyledP color="#fff" fontSize={fontSize}>{children}</StyledP>
-     
+      <StyledP color={color} fontSize={fontSize}>
+        {label ? label : null}
+      </StyledP>
+      <StyledP color={color} fontSize={fontSize}>
+        {children}
+      </StyledP>
+
       <StyledMeter
         value={value}
-        min="0"
-        max="10"
+        min={minVal}
+        max={maxVal}
         width={width}
         height={height}
+        backgroundColor={backgroundColor}
+        backgroundImage={backgroundImage}
       ></StyledMeter>
-
-
     </StyledLabel>
   );
+}
+
+Meter.defaultProps = {
+  label: 'Enter Label Prop',
+  value: 5,
+  width: '200px',
+  height: '25px',
+  fontSize: '.75rem',
+  minVal: 0,
+  maxVal: 10,
+  color: 'rgba(255,255,255,.6)',
+  backgroundColor: 'rgba(255,255,255,.6)',
+  backgroundImage: 'linear-gradient(90deg, #8162ce, #f54ba5)'
 }
 
 export default Meter;
