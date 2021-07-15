@@ -38,7 +38,7 @@ const sharedStyles = css`
   width: ${(props) => props.width || "100%"};
   height: ${(props) => props.height || "auto"};
   padding: ${(props) => props.padding || "0px"};
-  margin: ${(props) => props.margin};
+  margin: ${(props) => props.margin || "0px"};
   margin-bottom: ${(props) => props.marginBottom};
   z-index: ${(props) => props.zIndex};
   position: ${(props) => props.position};
@@ -50,6 +50,9 @@ const sharedStyles = css`
   border: ${(props) => props.border};
   border-bottom: ${(props) => props.borderBottom};
   display: ${(props) => props.display};
+  transform: ${(props) => props.transform};
+  font-size: ${(props) => props.fontSize};
+  color: ${props => props.color};
 `;
 
 // shared styles for Typography, p, h1 - h6

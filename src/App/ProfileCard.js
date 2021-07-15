@@ -2,15 +2,14 @@ import { useState } from "react";
 
 import styled, { css } from "styled-components";
 
-import Card from "../Card/Card";
-import Button from "../Button/Button";
-import Avatar from "../Avatar/Avatar";
-import Meter from "../Meter/Meter";
-import SocialIcon from "../SocialIcon/SocialIcon";
+import Button from "../Components/Button/Button";
+import Avatar from "../Components/Avatar/Avatar";
+import Meter from "../Components/Meter/Meter";
+import SocialIcon from "../Components/SocialIcon/SocialIcon";
 
-import { Title, StyledP, StyledWrapper } from "../../Styles/Styles";
+import { Title, StyledP, StyledWrapper } from "../Styles/Styles";
 
-import { handleEvent } from "../../Assets/eventHandlers/eventHandlers";
+import { handleEvent } from "../Assets/eventHandlers/eventHandlers";
 
 const flexStyles = css`
   display: flex;
@@ -31,11 +30,7 @@ const Dropdown = styled.div`
   ${(props) => (props.skillsActive ? "display: block" : "display: none")}
 `;
 
-function MyCard({
-  isFlex,
-  flexDirection,
-  alignItems,
-  justifyContent,
+function ProfileCard({
   userData,
   isActive,
   setActive,
@@ -44,70 +39,111 @@ function MyCard({
   setHasBadge,
   skillsActive,
   setSkillsActive,
-  margin,
-  padding,
-  background,
-  border,
-  width,
-  height,
-  borderRadius,
+  hasImg,
+  setHasImg,
 }) {
   return (
-    <Card
-      isFlex={isFlex}
-      flexDirection={flexDirection}
-      alignItems={alignItems}
-      justifyContent={justifyContent}
-      margin={margin}
-      padding={padding}
-      background={background}
-      borderRadius={borderRadius}
-      border={border}
-      width={width}
-      height={height}
+    <StyledWrapper
+      isFlex
+      flexDirection="column"
+      alignItems="center"
+      justifyContent="center"
+      margin="3rem"
+      padding="1rem"
+      background="#31394d"
+      borderRadius=".25rem"
+      width="275px"
+      height="auto"
     >
       {/* Avatar props: isActive, hasBadge, name, src */}
 
       <Avatar
-        src={src ? src : null}
+        src={hasImg ? src : null}
         isActive={isActive}
         hasBadge={hasBadge}
         name={userData.firstName}
       />
-      <Title color="#fff">{userData.firstName + userData.lastName}</Title>
-      <StyledP color="#fff">REACT DEVELOPER</StyledP>
-      <StyledP color="#fff" fontSize=".75rem">
+      <Title color="rgba(255,255,255,.89)">
+        {userData.firstName + userData.lastName}
+      </Title>
+      <StyledP color="rgba(255,255,255,.6)">REACT DEVELOPER</StyledP>
+      <StyledP color="rgba(255,255,255,.6)" fontSize=".75rem">
         Create React Js Web Apps
       </StyledP>
-      <StyledP color="#fff" fontSize=".75rem">
+      <StyledP color="rgba(255,255,255,.6)" fontSize=".75rem">
         @learnMern
       </StyledP>
       <StyledWrapper isFlex justifyContent="space-evenly">
         <Button
+          background="linear-gradient(to bottom right, #8162ce, #f54ba5)"
+          fontSize="1rem"
+          height="40px"
+          padding="0.25rem, 1rem"
+          border="none"
+          borderRadius="40px"
+          boxShadow="0 13px 26px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.16)"
+          color="rgba(255,255,255,.89)"
           onClick={(e) => {
             e.preventDefault();
             handleEvent(isActive, setActive);
           }}
         >
-          setActive
+          {isActive ? "notActive" : "setActive"}
         </Button>
         <Button
+          background="linear-gradient(to bottom right, #8162ce, #f54ba5)"
+          fontSize="1rem"
+          height="40px"
+          padding="0.25rem, 1rem"
+          border="none"
+          borderRadius="40px"
+          boxShadow="0 13px 26px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.16)"
+          color="rgba(255,255,255,.89)"
           onClick={(e) => {
             e.preventDefault();
             handleEvent(hasBadge, setHasBadge);
           }}
         >
-          setBadge
+          {hasBadge ? "noBadge" : "hasBadge"}
         </Button>
       </StyledWrapper>
-      <StyledWrapper isFlex justifyContent="center">
+      <StyledWrapper
+        isFlex
+        justifyContent="center"
+        alignItems="center"
+        flexDirection="column"
+      >
         <Button
+          background="linear-gradient(to bottom right, #8162ce, #f54ba5)"
+          fontSize="1rem"
+          height="40px"
+          padding="0.25rem, 1rem"
+          border="none"
+          borderRadius="40px"
+          boxShadow="0 13px 26px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.16)"
+          color="rgba(255,255,255,.89)"
+          onClick={(e) => {
+            e.preventDefault();
+            handleEvent(hasImg, setHasImg);
+          }}
+        >
+          {hasImg ? "noImg" : "setImg"}
+        </Button>
+        <Button
+          background="linear-gradient(to bottom right, #8162ce, #f54ba5)"
+          fontSize="1rem"
+          height="40px"
+          padding="0.25rem, 1rem"
+          border="none"
+          borderRadius="40px"
+          boxShadow="0 13px 26px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.16)"
+          color="rgba(255,255,255,.89)"
           onClick={(e) => {
             e.preventDefault();
             handleEvent(skillsActive, setSkillsActive);
           }}
         >
-          Skills
+          {!skillsActive ? "Skills" : "Close"}
         </Button>
       </StyledWrapper>
       <StyledWrapper
@@ -176,13 +212,17 @@ function MyCard({
         alignItems="center"
         padding="1rem"
       >
-        <StyledP color="#fff" textAlign="center" fontSize=".5rem">
+        <StyledP
+          color="rgba(255,255,255,.6)"
+          textAlign="center"
+          fontSize=".5rem"
+        >
           All credit goes to learnMern - Copyright 2021 learnMern - Designed by
           learnMern
         </StyledP>
       </StyledWrapper>
-    </Card>
+    </StyledWrapper>
   );
 }
 
-export default MyCard;
+export default ProfileCard;

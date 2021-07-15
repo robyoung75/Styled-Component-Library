@@ -27,7 +27,6 @@ const StyledListItem = styled.li`
   height: 100%;
   margin: 3px;
   width: ${(props) => props.listItemWidth || "100%"};
- 
 
   &:hover .navbar__dropdownContentLeft {
     opacity: 1;
@@ -64,24 +63,23 @@ const StyledDropdown = styled.div`
 const StyledDropdownContent = styled.div`
   ${(props) => props.isFlex && flexStyles}
   background-color: ${(props) => props.backgroundColor};
-  padding: 30px 15px;
+  padding: 1.5rem 1rem;
   margin: 0;
   position: absolute;
   left: 50%;
   transform: translate(-50%, 15px);
-  border-radius: 10px;
+  border-radius: 0.5rem;
   transition: opacity 0.5s;
   opacity: 0;
   pointer-events: none;
   transition-delay: 0.3s;
-  z-index: -1;
 
   &::before {
     content: "";
     position: absolute;
-    width: 20px;
-    height: 20px;
-    top: 5px;
+    width: 1rem;
+    height: 1rem;
+    top: 0.25rem;
     background-color: ${(props) => props.backgroundColor};
 
     transform: rotate(45deg) translate(-50%, -50%);
@@ -89,28 +87,28 @@ const StyledDropdownContent = styled.div`
 `;
 
 const StyledListItemLink = styled.a`
-color: ${(props) => props.primaryColor};
-text-decoration: none;
-display: block;
-text-align: center;
-transition: all 0.3s;
-&:hover {
-  transform: scale(1.15);
-  color: #8162ce;
-  cursor: pointer;
-}
+  color: ${(props) => props.primaryColor};
+  text-decoration: none;
+  display: block;
+  text-align: center;
+  transition: all 0.3s;
+  &:hover {
+    transform: scale(1.15);
+    color: #8162ce;
+    cursor: pointer;
+  }
 `;
 
 const StyledDropdownLink = styled.a`
-text-decoration: none;
-color: ${(props) => props.secondaryColor};
-white-space: nowrap;
-transition: all 0.3s;
-cursor: pointer;
-font-size: 1rem;
-&:hover {
-  transform: translateX(5px);
-}
+  text-decoration: none;
+  color: ${(props) => props.secondaryColor};
+  white-space: nowrap;
+  transition: all 0.3s;
+  cursor: pointer;
+  font-size: 1rem;
+  &:hover {
+    transform: translateX(0.5rem);
+  }
 `;
 
 export {

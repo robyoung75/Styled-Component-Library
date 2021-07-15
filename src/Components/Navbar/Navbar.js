@@ -16,16 +16,17 @@ import { handleEvent } from "../../Assets/eventHandlers/eventHandlers";
 import Hamburger from "../Hamburger/Hamburger";
 
 function Navbar({
+  isActive,
+  setActive,
+  modalActive,
+  setModalActive,
   flexDirection,
   primaryColor,
   secondaryColor,
   listItemWidth,
   backgroundColor,
-  display,
   isFlex,
 }) {
-  const [isActive, setIsActive] = useState(true);
-
   return (
     <StyledWrapper
       backgroundColor="#31394d"
@@ -33,7 +34,7 @@ function Navbar({
       position="fixed"
       isFlex
       justifyContent="center"
-      zIndex="10"
+      zIndex="3"
     >
       <StyledList
         className="navbar__list"
@@ -82,9 +83,16 @@ function Navbar({
             </StyledDropdownLink>
           </StyledDropdownContent>
         </StyledListItem>
-        <StyledListItem listItemWidth={listItemWidth}>
+        <StyledListItem
+          listItemWidth={listItemWidth}
+          onClick={(e) => {
+            e.preventDefault();
+            handleEvent(modalActive, setModalActive);
+            handleEvent(isActive, setActive);
+          }}
+        >
           <StyledListItemLink primaryColor={primaryColor}>
-            About
+            Login
           </StyledListItemLink>
         </StyledListItem>
         <StyledListItem
@@ -124,6 +132,7 @@ function Navbar({
       </StyledList>
 
       <Hamburger
+        isActive={isActive}
         backgroundColor="rgba(143,68,253)"
         width="35px"
         height="35px"
@@ -131,9 +140,8 @@ function Navbar({
         top="10px"
         onClick={(e) => {
           e.preventDefault();
-          handleEvent(isActive, setIsActive);
+          handleEvent(isActive, setActive);
         }}
-        isActive={isActive}
       />
     </StyledWrapper>
   );

@@ -52,7 +52,7 @@ const StyledSpan = styled.span`
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 24px;
+  font-size: 1rem;
   font-weight: 600;
   ${sharedStyles}
 

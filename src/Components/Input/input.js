@@ -12,10 +12,12 @@ function Input({
   color,
   background,
   width,
+  placeholderColor,
+  labelColor
 }) {
   return (
     <StyledLabel>
-      <StyledP color="#8f44fd">{placeholder}</StyledP>{" "}
+      <StyledP color={labelColor}>{placeholder}</StyledP>{" "}
       <StyledInput
         type={type}
         placeholder={placeholder}
@@ -24,6 +26,7 @@ function Input({
         color={color}
         width={width}
         background={background}
+        placeholderColor={placeholderColor}
       />
     </StyledLabel>
   );

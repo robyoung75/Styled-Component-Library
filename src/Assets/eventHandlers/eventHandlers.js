@@ -35,9 +35,8 @@ const handleEvent = (state, setState, target) => {
     : setState("");
 };
 
-const handleCancel = (stateUserDataFirstName, stateUserDataLastName, setState) => {
-  setState(stateUserDataFirstName = "");
-  setState(stateUserDataLastName = "");
+const handleCancel = (state, setState) => {
+  setState({...state, userName: "", password: ""})
 };
 
 export { handleSubmitUser, handleEvent, handleCancel };
