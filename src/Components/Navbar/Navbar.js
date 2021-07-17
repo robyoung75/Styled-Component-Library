@@ -9,7 +9,7 @@ import {
   StyledDropdown,
   StyledDropdownContent,
   StyledDropdownLink,
-} from "../../Styles/NavbarStyles";
+} from "./NavbarStyles";
 
 import { handleEvent } from "../../Assets/eventHandlers/eventHandlers";
 
@@ -26,20 +26,25 @@ function Navbar({
   listItemWidth,
   backgroundColor,
   isFlex,
-  justifyContent,
+  justifyContentPrimary,
+  justifyContentSecondary,
   alignItems,
   backgroundColorDropDown,
   left,
   height,
+  position,
+  zIndex,
+  width
 }) {
   return (
     <StyledWrapper
       backgroundColor={backgroundColor}
       height={height}
-      position="fixed"
-      isFlex
-      justifyContent={justifyContent}
-      zIndex="3"
+      position={position}
+      isFlex={isFlex}
+      justifyContent={justifyContentPrimary}
+      zIndex={zIndex}
+      width={width}
     >
       <StyledList
         className="navbar__list"
@@ -47,7 +52,7 @@ function Navbar({
         isFlex={isFlex}
         flexDirection={flexDirection}
         backgroundColor={backgroundColor}
-        justifyContent="space-evenly"
+        justifyContent={justifyContentSecondary}
       >
         <StyledListItem listItemWidth={listItemWidth}>
           <StyledListItemLink primaryColor={primaryColor}>
@@ -70,8 +75,8 @@ function Navbar({
             className="navbar__dropdownContentLeft"
             isFlex={isFlex}
             flexDirection={flexDirection}
-            justifyContent={justifyContent}
-            alignItems={justifyContent}
+            justifyContent={justifyContentPrimary}
+            alignItems={justifyContentPrimary}
             backgroundColorDropdown={backgroundColorDropDown}
             left={left}
           >
@@ -106,8 +111,8 @@ function Navbar({
             className="navbar__dropdownContentRight"
             isFlex={isFlex}
             flexDirection={flexDirection}
-            justifyContent={justifyContent}
-            alignItems={justifyContent}
+            justifyContent={justifyContentPrimary}
+            alignItems={justifyContentPrimary}
             backgroundColorDropdown={backgroundColorDropDown}
             left={left}
           >
@@ -152,7 +157,8 @@ function Navbar({
 
 Navbar.defaultProps = {
   flexDirection: "column",
-  justifyContent: "center",
+  justifyContentPrimary: "center",
+  justifyContentSecondary: 'space-evenly',
   alignItems: "alignItems",
   primaryColor: "rgba(255,255,255,.89)",
   secondaryColor: "rgba(131,58,180,1)",
@@ -161,6 +167,10 @@ Navbar.defaultProps = {
   backgroundColorDropDown: "rgba(255,255,255,.9)",
   left: "50%",
   height: "55px",
+  position: 'fixed',
+  zIndex: '3',
+  width: "100%"
+
 };
 
 export default Navbar;

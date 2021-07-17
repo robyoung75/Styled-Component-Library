@@ -7,17 +7,22 @@ import "./App.css";
 // Components imports
 import Navbar from "../Components/Navbar/Navbar";
 import ProfileCard from "./ProfileCard";
+import Login from "./Login";
 
 //Styled Components Imports
 import { StyledWrapper, Title, SubTitle, StyledP } from "../Styles/Styles";
 
 // images
 import brighton from "../Assets/Images/brighton.jpg";
-import Login from "./Login";
 
-import { handleEvent } from "../Assets/eventHandlers/eventHandlers";
+// eventHandler fucntions
+import {
+  handleEvent,
+  handleCancel,
+  handleSubmitUser,
+} from "../Assets/eventHandlers/eventHandlers";
 
-// App > StyledWrapper > Title > SubTitle > StyledModalWrapper
+// App
 function App() {
   // State
   const [firstName, setFirstName] = useState("@learn");
@@ -34,12 +39,13 @@ function App() {
 
   const [modalActive, setModalActive] = useState(false);
   const [isActive, setActive] = useState(true);
+  const [avatarActive, setAvatarActive] = useState(false);
   const [hasBadge, setHasBadge] = useState(false);
   const [skillsActive, setSkillsActive] = useState(false);
   const [hasImg, setHasImg] = useState(false);
 
   return (
-    <StyledWrapper isFlex flexDirection="column">
+    <StyledWrapper>
       <Navbar
         isActive={isActive}
         setActive={setActive}
@@ -50,7 +56,7 @@ function App() {
 
       <StyledWrapper
         isFlex
-        flexDirection={"column"}
+        flexDirection="column"
         height="auto"
         background="linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(49,57,77,1) 50%, rgba(131,58,180,1) 100%)"
         borderBottom="2px solid #fff"
@@ -68,12 +74,14 @@ function App() {
           Responsive Navbar with Hamburger and Dropdowns
         </StyledP>
 
-        <StyledWrapper isFlex>
+        <StyledWrapper isFlex justifyContent="center">
           {" "}
           <ProfileCard
             userData={userData}
             isActive={isActive}
             setActive={setActive}
+            avatarActive={avatarActive}
+            setAvatarActive={setAvatarActive}
             hasBadge={hasBadge}
             setHasBadge={setHasBadge}
             skillsActive={skillsActive}
@@ -108,6 +116,8 @@ function App() {
             modalActive={modalActive}
             setModalActive={setModalActive}
             handleEvent={handleEvent}
+            handleCancel={handleCancel}
+            handleSubmitUser={handleSubmitUser}
             userData={userData}
             setUserData={setUserData}
             firstName={firstName}
@@ -124,7 +134,5 @@ function App() {
     </StyledWrapper>
   );
 }
-
-
 
 export default App;

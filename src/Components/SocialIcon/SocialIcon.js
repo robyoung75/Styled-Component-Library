@@ -7,6 +7,7 @@ import {
   faLinkedin,
   faInstagram,
 } from "@fortawesome/free-brands-svg-icons";
+import { StyledWrapper } from "../../Styles/Styles";
 
 function SocialIcon({
   icon,
@@ -19,38 +20,51 @@ function SocialIcon({
   pull,
   transform,
   size,
+  justifyContent,
+  alignItems,
+  padding,
 }) {
   return (
-    <FontAwesomeIcon
-      icon={
-        icon == "instagram"
-          ? faInstagram
-          : icon == "facebook"
-          ? faFacebook
-          : icon == "gitHub"
-          ? faGithub
-          : icon == "linkedin"
-          ? faLinkedin
-          : null
-      }
-      color={color}
-      rotation={rotation}
-      flip={flip}
-      spin={spin}
-      pulse={pulse}
-      border={border}
-      pull={pull}
-      transform={transform}
-      size={size}
-    />
+    <StyledWrapper
+      isFlex
+      justifyContent={justifyContent}
+      alignItems={alignItems}
+      padding={padding}
+    >
+      {" "}
+      <FontAwesomeIcon
+        icon={
+          icon == "instagram"
+            ? faInstagram
+            : icon == "facebook"
+            ? faFacebook
+            : icon == "gitHub"
+            ? faGithub
+            : icon == "linkedin"
+            ? faLinkedin
+            : null
+        }
+        color={color}
+        rotation={rotation}
+        flip={flip}
+        spin={spin}
+        pulse={pulse}
+        border={border}
+        pull={pull}
+        transform={transform}
+        size={size}
+      />
+    </StyledWrapper>
   );
 }
 
 SocialIcon.defaultProps = {
   icon: "gitHub",
-  color: 'rgba(255,255,255,.6)',
- 
-  size: 'lg',
-}
+  color: "rgba(255,255,255,.6)",
+  size: "lg",
+  justifyContent: "center",
+  alignItems: "center",
+  padding: ".5rem",
+};
 
 export default SocialIcon;

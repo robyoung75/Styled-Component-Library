@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 import styled, { css } from "styled-components";
 
 import Button from "../Components/Button/Button";
@@ -32,15 +30,15 @@ const Dropdown = styled.div`
 
 function ProfileCard({
   userData,
-  isActive,
-  setActive,
+  avatarActive,
+  setAvatarActive,
   src,
   hasBadge,
   setHasBadge,
-  skillsActive,
-  setSkillsActive,
   hasImg,
   setHasImg,
+  skillsActive,
+  setSkillsActive,
 }) {
   return (
     <StyledWrapper
@@ -59,7 +57,7 @@ function ProfileCard({
 
       <Avatar
         src={hasImg ? src : null}
-        isActive={isActive}
+        isActive={avatarActive}
         hasBadge={hasBadge}
         name={userData.firstName}
       />
@@ -75,34 +73,14 @@ function ProfileCard({
       </StyledP>
       <StyledWrapper isFlex justifyContent="space-evenly">
         <Button
-          background="linear-gradient(to bottom right, #8162ce, #f54ba5)"
-          fontSize="1rem"
-          height="40px"
-          padding="0.25rem 1rem"
-          margin="1rem"
-          border="none"
-          borderRadius="40px"
-          boxShadow="0 13px 26px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.16)"
-          color="rgba(255,255,255,.89)"
-          hoverColor="#f54ba5"
           onClick={(e) => {
             e.preventDefault();
-            handleEvent(isActive, setActive);
+            handleEvent(avatarActive, setAvatarActive);
           }}
         >
-          {isActive ? "notActive" : "setActive"}
+          {avatarActive ? "notActive" : "setActive"}
         </Button>
         <Button
-          background="linear-gradient(to bottom right, #8162ce, #f54ba5)"
-          fontSize="1rem"
-          height="40px"
-          padding="0.25rem 1rem"
-          margin="1rem"
-          border="none"
-          borderRadius="40px"
-          boxShadow="0 13px 26px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.16)"
-          color="rgba(255,255,255,.89)"
-          hoverColor="#f54ba5"
           onClick={(e) => {
             e.preventDefault();
             handleEvent(hasBadge, setHasBadge);
@@ -118,16 +96,6 @@ function ProfileCard({
         flexDirection="column"
       >
         <Button
-          background="linear-gradient(to bottom right, #8162ce, #f54ba5)"
-          fontSize="1rem"
-          height="40px"
-          padding="0.25rem 1rem"
-          margin="1rem"
-          border="none"
-          borderRadius="40px"
-          boxShadow="0 13px 26px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.16)"
-          color="rgba(255,255,255,.89)"
-          hoverColor="#f54ba5"
           onClick={(e) => {
             e.preventDefault();
             handleEvent(hasImg, setHasImg);
@@ -136,16 +104,6 @@ function ProfileCard({
           {hasImg ? "noImg" : "setImg"}
         </Button>
         <Button
-          background="linear-gradient(to bottom right, #8162ce, #f54ba5)"
-          fontSize="1rem"
-          height="40px"
-          padding="0.25rem 1rem"
-          margin="1rem"
-          border="none"
-          borderRadius="40px"
-          boxShadow="0 13px 26px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.16)"
-          color="rgba(255,255,255,.89)"
-          hoverColor="#f54ba5"
           onClick={(e) => {
             e.preventDefault();
             handleEvent(skillsActive, setSkillsActive);
@@ -175,17 +133,7 @@ function ProfileCard({
           padding="1rem"
         >
           {" "}
-          <Meter
-            label="Html"
-            value={8}
-            width="200px"
-            height="25px"
-            fontSize=".75rem"
-            minVal={0}
-            maxVal={10}
-            color="rgba(255,255,255,.6)"
-            backgroundColor="rgba(255,255,255,.6)"
-          >
+          <Meter label="Html" value={8}>
             80%
           </Meter>
           <Meter label="css" value={7}>

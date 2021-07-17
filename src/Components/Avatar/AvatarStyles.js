@@ -1,18 +1,18 @@
 import styled, { css } from "styled-components";
 
 // Avatar Style rendered by Avatar
-const size = "80px";
+
 
 const sharedStyles = css`
   position: relative;
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background: #21fce2;
+  background: ${props => props.background};
 `;
 
 const activeStyles = css`
-  background: #262526;
+  background: ${props => props.backgroundActive};
   &:before {
     content: "";
     display: block;
@@ -23,7 +23,7 @@ const activeStyles = css`
     width: calc(100% + 4px);
     height: calc(100% + 4px);
     border-radius: 50%;
-    background: linear-gradient(45deg, #21fce2, #0b8fe0);
+    background: ${props => props.backgroundActiveGradient};
   }
   &&:hover {
     cursor: pointer;
@@ -33,8 +33,8 @@ const activeStyles = css`
 const StyledAvatar = styled.span`
   display: block;
   position: relative;
-  width: ${size};
-  height: ${size};
+  width: ${props => props.size};
+  height: ${props => props.size};
   padding: 5px;
   border-radius: 50%;
  
@@ -62,12 +62,12 @@ const StyledBadge = styled.span`
   display: block;
   position: absolute;
   z-index: 1;
-  right: -2px;
-  width: 18px;
-  height: 18px;
+  right: 0;
+  width: 14px;
+  height: 14px;
   border-radius: 50%;
-  border: 4px solid #262526;
-  background: #21fc6b;
+  border: ${props => props.border};
+  background: ${props => props.backgroundBadge};
 `;
 
 export { StyledAvatar, StyledImage, StyledSpan, StyledBadge };

@@ -1,9 +1,5 @@
 import React from "react";
-import {
-  handleCancel,
-  handleEvent,
-  handleSubmitUser,
-} from "../Assets/eventHandlers/eventHandlers";
+
 import Button from "../Components/Button/Button";
 import Input from "../Components/Input/input";
 
@@ -11,7 +7,8 @@ import { StyledP, StyledWrapper } from "../Styles/Styles";
 
 function Login({
   handleEvent,
-
+  handleCancel,
+  handleSubmitUser,
   modalActive,
   setModalActive,
   userData,

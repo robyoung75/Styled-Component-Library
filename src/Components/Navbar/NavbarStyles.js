@@ -1,15 +1,14 @@
 import styled from "styled-components";
 
-import { flexStyles, sharedStyles, device } from "./Styles";
+import { flexStyles, sharedStyles, device } from "../../Styles/Styles";
 // Navbar Styles
 const StyledList = styled.ul`
   ${(props) => props.isFlex && flexStyles}
 
   list-style: none;
   background-color: ${(props) => props.backgroundColor};
-  padding: 0;
-  margin: 0;
-  z-index: 8;
+  
+ 
   transform: ${(props) =>
     props.isActive ? "translateY(-110%)" : "translateY(0%)"};
   opacity: ${(props) => (props.isActive ? 0 : 1)};
@@ -24,7 +23,7 @@ const StyledList = styled.ul`
 
 const StyledListItem = styled.li`
   padding: 2rem;
-  height: 100%;
+ 
  
   width: ${(props) => props.listItemWidth};
 
@@ -64,11 +63,11 @@ const StyledDropdownContent = styled.div`
   ${(props) => props.isFlex && flexStyles}
   background-color: ${(props) => props.backgroundColorDropdown};
   padding: 1.5rem 1rem;
-  margin: 0;
+  
   position: absolute;
   left: ${(props) => props.left};
   transform: translate(-50%, 15px);
-  border-radius: 0.5rem;
+  border-radius: 0.25rem;
   transition: opacity 0.5s;
   opacity: 0;
   pointer-events: none;

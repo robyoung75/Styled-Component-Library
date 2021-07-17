@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { flexStyles } from "./Styles";
+import { flexStyles } from "../../Styles/Styles";
 
 const StyledInput = styled.input.attrs((props) => ({
   type: props.type || "text",

@@ -35,10 +35,10 @@ const sharedStyles = css`
 
   background-color: ${(props) => props.backgroundColor};
   background: ${(props) => props.background};
-  width: ${(props) => props.width || "100%"};
-  height: ${(props) => props.height || "auto"};
-  padding: ${(props) => props.padding || "0px"};
-  margin: ${(props) => props.margin || "0px"};
+  width: ${(props) => props.width};
+  height: ${(props) => props.height};
+  padding: ${(props) => props.padding};
+  margin: ${(props) => props.margin};
   margin-bottom: ${(props) => props.marginBottom};
   z-index: ${(props) => props.zIndex};
   position: ${(props) => props.position};
@@ -62,7 +62,7 @@ const sharedTypography = css`
   text-decoration: ${(props) => props.textDecoration};
   text-align: ${(props) => props.textAlign};
   padding: ${(props) => props.padding};
-  margin: ${(props) => props.margin || "0px"};
+  margin: ${(props) => props.margin};
   font-size: ${(props) => props.fontSize};
 `;
 

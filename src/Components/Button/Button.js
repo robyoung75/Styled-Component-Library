@@ -1,6 +1,6 @@
 // rendered in App as a child of Card and in Modal
 
-import { StyledButton } from "../../Styles/ButtonStyles";
+import { StyledButton } from "./ButtonStyles";
 
 function Button({
   onClick,
@@ -43,6 +43,7 @@ Button.defaultProps = {
   height: '40px',
   width: 'auto',
   padding: '.25rem 1rem',
+  margin: '1rem',
   border: 'none',
   borderRadius: '40px',
   boxShadow: '0 13px 26px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.16)',

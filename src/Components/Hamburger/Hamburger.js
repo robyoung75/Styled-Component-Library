@@ -5,7 +5,7 @@ import {
   StyledHamburgerTop,
   StyledHamburgerMiddle,
   StyledHamburgerBottom,
-} from "../../Styles/HamburgerStyles";
+} from "./HamburgerStyles";
 
 // rendered by Navbar
 function Hamburger({

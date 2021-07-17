@@ -1,5 +1,5 @@
 import { StyledLabel, StyledP } from "../../Styles/Styles";
-import { StyledMeter } from "../../Styles/MeterStyles";
+import { StyledMeter } from "./MeterStyles";
 
 function Meter({
   width,
