@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 // Styles Styled Components
-import { StyledWrapper, StyledP } from "../../Styles/Styles";
+import { StyledWrapper, StyledP } from "../ComponentStyles/ComponentStyles";
 import {
   StyledList,
   StyledListItem,
@@ -11,7 +11,7 @@ import {
   StyledDropdownLink,
 } from "./NavbarStyles";
 
-import { handleEvent } from "../../Assets/eventHandlers/eventHandlers";
+import { handleEvent } from "../../../Assets/eventHandlers/eventHandlers";
 
 import Hamburger from "../Hamburger/Hamburger";
 

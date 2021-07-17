@@ -1,4 +1,4 @@
-import { StyledLabel, StyledP } from "../../Styles/Styles";
+import { StyledLabel, StyledP } from "../ComponentStyles/ComponentStyles";
 import { StyledMeter } from "./MeterStyles";
 
 function Meter({

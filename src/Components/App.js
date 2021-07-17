@@ -2,15 +2,20 @@
 import { useState } from "react";
 
 // universal styles
-import "./App.css";
+import "../Components/App.css";
 
 // Components imports
-import Navbar from "../Components/Navbar/Navbar";
+import Navbar from "./Library/Navbar/Navbar";
 import ProfileCard from "./ProfileCard";
 import Login from "./Login";
 
 //Styled Components Imports
-import { StyledWrapper, Title, SubTitle, StyledP } from "../Styles/Styles";
+import {
+  StyledWrapper,
+  Title,
+  SubTitle,
+  StyledP,
+} from "./Library/ComponentStyles/ComponentStyles";
 
 // images
 import brighton from "../Assets/Images/brighton.jpg";

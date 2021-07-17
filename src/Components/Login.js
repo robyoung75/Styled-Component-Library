@@ -1,9 +1,9 @@
 import React from "react";
 
-import Button from "../Components/Button/Button";
-import Input from "../Components/Input/input";
+import Button from "./Library/Button/Button";
+import Input from "./Library/Input/input";
 
-import { StyledP, StyledWrapper } from "../Styles/Styles";
+import { StyledP, StyledWrapper } from "./Library/ComponentStyles/ComponentStyles";
 
 function Login({
   handleEvent,

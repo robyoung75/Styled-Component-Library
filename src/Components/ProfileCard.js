@@ -1,11 +1,11 @@
 import styled, { css } from "styled-components";
 
-import Button from "../Components/Button/Button";
-import Avatar from "../Components/Avatar/Avatar";
-import Meter from "../Components/Meter/Meter";
-import SocialIcon from "../Components/SocialIcon/SocialIcon";
+import Button from "./Library/Button/Button";
+import Avatar from "./Library/Avatar/Avatar";
+import Meter from "./Library/Meter/Meter";
+import SocialIcon from "./Library/SocialIcon/SocialIcon";
 
-import { Title, StyledP, StyledWrapper } from "../Styles/Styles";
+import { Title, StyledP, StyledWrapper } from "./Library/ComponentStyles/ComponentStyles";
 
 import { handleEvent } from "../Assets/eventHandlers/eventHandlers";
 

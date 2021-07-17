@@ -1,5 +1,5 @@
 import React from "react";
-import { StyledWrapper } from "../../Styles/Styles";
+import { StyledWrapper } from "../ComponentStyles/ComponentStyles";
 import {
   StyledHamburger,
   StyledHamburgerTop,

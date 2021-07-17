@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import {sharedStyles} from '../../Styles/Styles'
+import {sharedStyles} from '../ComponentStyles/ComponentStyles'
 // Styled Button rendered by > App > Modal
 const StyledButton = styled.button`
   ${sharedStyles};

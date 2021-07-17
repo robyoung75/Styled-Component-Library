@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { flexStyles, sharedStyles, device } from "../../Styles/Styles";
+import { flexStyles, sharedStyles, device } from "../ComponentStyles/ComponentStyles";
 // Navbar Styles
 const StyledList = styled.ul`
   ${(props) => props.isFlex && flexStyles}

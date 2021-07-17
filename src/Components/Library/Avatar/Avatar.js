@@ -1,6 +1,6 @@
 // rendered in App as a child of Card
 
-import { StyledP } from "../../Styles/Styles";
+import { StyledP } from "../ComponentStyles/ComponentStyles";
 import {
   StyledAvatar,
   StyledImage,

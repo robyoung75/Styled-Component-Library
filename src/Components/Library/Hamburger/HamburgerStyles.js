@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-import { device } from "../../Styles/Styles";
+import { device } from "../ComponentStyles/ComponentStyles";
 
 const hamburgerStyles = css`
   width: ${(props) => props.bunWidth};

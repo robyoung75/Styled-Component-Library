@@ -7,7 +7,7 @@ import {
   faLinkedin,
   faInstagram,
 } from "@fortawesome/free-brands-svg-icons";
-import { StyledWrapper } from "../../Styles/Styles";
+import { StyledWrapper } from "../ComponentStyles/ComponentStyles";
 
 function SocialIcon({
   icon,
