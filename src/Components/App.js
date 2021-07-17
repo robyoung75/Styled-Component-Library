@@ -8,6 +8,8 @@ import "../Components/App.css";
 import Navbar from "./Library/Navbar/Navbar";
 import ProfileCard from "./ProfileCard";
 import Login from "./Login";
+import BgCard from './BgCard'
+
 
 //Styled Components Imports
 import {
@@ -19,6 +21,7 @@ import {
 
 // images
 import brighton from "../Assets/Images/brighton.jpg";
+import zen from '../Assets/Images/Zen.jpg';
 
 // eventHandler fucntions
 import {
@@ -48,6 +51,8 @@ function App() {
   const [hasBadge, setHasBadge] = useState(false);
   const [skillsActive, setSkillsActive] = useState(false);
   const [hasImg, setHasImg] = useState(false);
+
+  const [bgCardImg, setbgCardImg] = useState(zen)
 
   return (
     <StyledWrapper>
@@ -80,7 +85,13 @@ function App() {
         </StyledP>
 
         <StyledWrapper isFlex justifyContent="center">
-          {" "}
+
+
+
+          <BgCard src={zen}></BgCard>
+
+
+
           <ProfileCard
             userData={userData}
             isActive={isActive}
@@ -95,6 +106,7 @@ function App() {
             setHasImg={setHasImg}
             src={userData.userImage}
           ></ProfileCard>
+         
         </StyledWrapper>
       </StyledWrapper>
 

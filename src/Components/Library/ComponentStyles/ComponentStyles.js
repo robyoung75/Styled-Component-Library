@@ -52,8 +52,8 @@ const sharedStyles = css`
   display: ${(props) => props.display};
   transform: ${(props) => props.transform};
   font-size: ${(props) => props.fontSize};
-  color: ${props => props.color};
-  opacity: ${props => props.opacity}
+  color: ${(props) => props.color};
+  opacity: ${(props) => props.opacity};
 `;
 
 // shared styles for Typography, p, h1 - h6
@@ -90,6 +90,16 @@ const StyledLabel = styled.label`
   ${(props) => props.isFlex && flexStyles};
 `;
 
+const StyledImage = styled.img`
+
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+  object-fit: cover;
+  opacity: .8
+`;
+
 export {
   flexStyles,
   StyledWrapper,
@@ -100,4 +110,5 @@ export {
   size,
   device,
   sharedStyles,
+  StyledImage,
 };
