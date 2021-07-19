@@ -98,6 +98,8 @@ const StyledImage = styled.img`
   border-radius: ${(props) => props.borderRadius};
   object-fit: cover;
   opacity: 0.89;
+
+  ${(props) => (props.imgExp ? "&:hover {transform: scale(2); z-index: 1}" : null)}
 `;
 
 export {

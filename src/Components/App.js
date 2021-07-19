@@ -54,6 +54,8 @@ function App() {
 
   const [bgCardImg, setbgCardImg] = useState(zen);
 
+  const [productRating, setProductRating] = useState(2)
+
   return (
     <StyledWrapper>
       <Navbar
@@ -95,11 +97,13 @@ function App() {
             {" "}
             <StyledWrapper margin="1rem">
               {" "}
-              <BgCard src={zen}></BgCard>
+              <BgCard src={bgCardImg}></BgCard>
             </StyledWrapper>
-            <StyledWrapper margin="1rem">
-              {" "}
-              <ProductCard src={zen}></ProductCard>
+
+
+
+            <StyledWrapper margin="1rem">              
+              <ProductCard src={bgCardImg} productRating={productRating}></ProductCard>
               <StyledP color="rgba(255,255,255,.6)">
                 {userData.userName}
               </StyledP>
@@ -107,6 +111,9 @@ function App() {
                 {userData.password}
               </StyledP>
             </StyledWrapper>
+
+
+            
           </StyledWrapper>
 
           <ProfileCard

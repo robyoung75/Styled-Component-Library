@@ -46,10 +46,10 @@ function ProfileCard({
       flexDirection="column"
       alignItems="center"
       justifyContent="center"
-      margin="3rem, 0"
+      margin="2rem 0"
       padding="1rem"
       background="#31394d"
-      borderRadius=".25rem"
+      borderRadius=".5rem"
       width="275px"
       height="auto"
     >
