@@ -47,7 +47,7 @@ function ProfileCard({
       alignItems="center"
       justifyContent="center"
       margin="3rem, 0"
-      padding="1rem,"
+      padding="1rem"
       background="#31394d"
       borderRadius=".25rem"
       width="275px"

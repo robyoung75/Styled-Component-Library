@@ -8,8 +8,7 @@ import "../Components/App.css";
 import Navbar from "./Library/Navbar/Navbar";
 import ProfileCard from "./ProfileCard";
 import Login from "./Login";
-import BgCard from './BgCard'
-
+import BgCard from "./Library/BgCard/BgCard";
 
 //Styled Components Imports
 import {
@@ -21,7 +20,7 @@ import {
 
 // images
 import brighton from "../Assets/Images/brighton.jpg";
-import zen from '../Assets/Images/Zen.jpg';
+import zen from "../Assets/Images/Zen.jpg";
 
 // eventHandler fucntions
 import {
@@ -29,6 +28,7 @@ import {
   handleCancel,
   handleSubmitUser,
 } from "../Assets/eventHandlers/eventHandlers";
+import ProductCard from "./Library/ProductCard/ProductCard";
 
 // App
 function App() {
@@ -52,7 +52,7 @@ function App() {
   const [skillsActive, setSkillsActive] = useState(false);
   const [hasImg, setHasImg] = useState(false);
 
-  const [bgCardImg, setbgCardImg] = useState(zen)
+  const [bgCardImg, setbgCardImg] = useState(zen);
 
   return (
     <StyledWrapper>
@@ -85,12 +85,29 @@ function App() {
         </StyledP>
 
         <StyledWrapper isFlex justifyContent="center">
-
-
-
-          <BgCard src={zen}></BgCard>
-
-
+          <StyledWrapper
+            padding="1rem"
+            isFlex
+            flexDirection="column"
+            alignItems="center"
+            justifyContent="center"
+          >
+            {" "}
+            <StyledWrapper margin="1rem">
+              {" "}
+              <BgCard src={zen}></BgCard>
+            </StyledWrapper>
+            <StyledWrapper margin="1rem">
+              {" "}
+              <ProductCard src={zen}></ProductCard>
+              <StyledP color="rgba(255,255,255,.6)">
+                {userData.userName}
+              </StyledP>
+              <StyledP color="rgba(255,255,255,.6)">
+                {userData.password}
+              </StyledP>
+            </StyledWrapper>
+          </StyledWrapper>
 
           <ProfileCard
             userData={userData}
@@ -106,7 +123,6 @@ function App() {
             setHasImg={setHasImg}
             src={userData.userImage}
           ></ProfileCard>
-         
         </StyledWrapper>
       </StyledWrapper>
 
@@ -114,11 +130,7 @@ function App() {
         height="1000px"
         background="linear-gradient(180deg, rgba(131,58,180,1) 0%, rgba(49,57,77,1) 50%, rgba(0,0,0,1) 100%)"
         opacity={modalActive ? 0.4 : null}
-      >
-        {" "}
-        <StyledP color="rgba(255,255,255,.6)">{userData.userName}</StyledP>
-        <StyledP color="rgba(255,255,255,.6)">{userData.password}</StyledP>
-      </StyledWrapper>
+      ></StyledWrapper>
 
       <StyledWrapper
         position="fixed"

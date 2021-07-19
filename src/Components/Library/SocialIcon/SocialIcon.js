@@ -6,7 +6,10 @@ import {
   faGithub,
   faLinkedin,
   faInstagram,
+  
 } from "@fortawesome/free-brands-svg-icons";
+
+import { fas, faStar } from "@fortawesome/free-solid-svg-icons";
 import { StyledWrapper } from "../ComponentStyles/ComponentStyles";
 
 function SocialIcon({
@@ -42,6 +45,8 @@ function SocialIcon({
             ? faGithub
             : icon == "linkedin"
             ? faLinkedin
+            : icon =='star'
+            ? faStar
             : null
         }
         color={color}

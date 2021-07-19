@@ -45,6 +45,7 @@ const sharedStyles = css`
   right: ${(props) => props.right};
   left: ${(props) => props.left};
   top: ${(props) => props.top};
+  bottom: ${(props) => props.bottom}
   padding: ${(props) => props.padding};
   border-radius: ${(props) => props.borderRadius};
   border: ${(props) => props.border};
@@ -91,13 +92,12 @@ const StyledLabel = styled.label`
 `;
 
 const StyledImage = styled.img`
-
   position: relative;
   width: 100%;
   height: 100%;
-  border-radius: 1rem;
+  border-radius: ${(props) => props.borderRadius};
   object-fit: cover;
-  opacity: .8
+  opacity: 0.89;
 `;
 
 export {
