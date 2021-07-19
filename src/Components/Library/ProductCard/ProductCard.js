@@ -11,6 +11,7 @@ import {
 function ProductCard({
   src,
   price,
+  flexDirection,
   productRating,
   primaryColor,
   secondaryColor,
@@ -20,13 +21,10 @@ function ProductCard({
   width,
   height,
   background,
-  color,
-  fontSubTitle,
   fontBody,
   borderRadius,
-  title,
   body,
-  padding,
+  product,
 }) {
   return (
     <StyledWrapper
@@ -34,65 +32,60 @@ function ProductCard({
       isFlex
       background={background}
       width={width}
-      height={height}
-      position="relative"
-      padding={padding}
-      justifyContent="space-between"
       borderRadius={borderRadius}
+      flexDirection={flexDirection}
     >
       <StyledWrapper
         isFlex
-        height="100%"
-        width="80%"
+        height={height}
         borderRadius={borderRadius}
+        padding=".5rem"
       >
         <StyledImage src={src} borderRadius={borderRadius} imgExp></StyledImage>
       </StyledWrapper>
       <StyledWrapper
         isFlex
         flexDirection="column"
-        height="100%"
-        position="relative"
-        right="0px"
-        margin="0 0 0 1rem"
+        height={height}
+        justifyContent="space-evenly"
+        padding=".75rem"
       >
-        <Title
-          color={primaryColor}
-          padding=".5rem 0 0 .5rem"
-          fontSize={fontTitle}
-        >
-          {title}
-        </Title>
+        <StyledWrapper isFlex width="100%" padding=".25rem 0">
+          {" "}
+          <Title color={primaryColor} fontSize={fontTitle}>
+            {product.productTitle}
+          </Title>
+        </StyledWrapper>
 
         <StyledWrapper isFlex>
           {" "}
           <SocialIcon
             icon="star"
             size="xs"
-            color={productRating >= 1 ? starColor : tertiaryColor}
+            color={product.productRating >= 1 ? starColor : tertiaryColor}
           ></SocialIcon>
           <SocialIcon
             icon="star"
             size="xs"
-            color={productRating > 1 ? starColor : tertiaryColor}
+            color={product.productRating > 1 ? starColor : tertiaryColor}
           ></SocialIcon>
           <SocialIcon
             icon="star"
             size="xs"
-            color={productRating > 2 ? starColor : tertiaryColor}
+            color={product.productRating > 2 ? starColor : tertiaryColor}
           ></SocialIcon>
           <SocialIcon
             icon="star"
             size="xs"
-            color={productRating > 3 ? starColor : tertiaryColor}
+            color={product.productRating > 3 ? starColor : tertiaryColor}
           ></SocialIcon>
           <SocialIcon
             icon="star"
             size="xs"
-            color={productRating > 4 ? starColor : tertiaryColor}
+            color={product.productRating > 4 ? starColor : tertiaryColor}
           ></SocialIcon>
         </StyledWrapper>
-        <StyledWrapper isFlex padding="0 .5rem">
+        <StyledWrapper isFlex padding=".25rem 0">
           {" "}
           <StyledP color={secondaryColor} fontSize={fontBody}>
             {body}
@@ -101,22 +94,14 @@ function ProductCard({
 
         <StyledWrapper
           isFlex
+          width="100%"
           alignItems="center"
           justifyContent="space-between"
-          position="absolute"
-          top="70%"
-          width="100%"
         >
-          <StyledP padding=".5rem" color={primaryColor} fontSize={fontBody}>
+          <StyledP color={primaryColor} fontSize={fontBody}>
             Price: {price}
           </StyledP>
-          <Button
-            isFlex
-            width="80%"
-            padding="0 .75rem"
-            margin="0 .25rem"
-            fontSize={fontBody}
-          >
+          <Button isFlex width="60%" fontSize={fontBody} margin="0px">
             Buy Now
           </Button>
         </StyledWrapper>
@@ -129,7 +114,6 @@ ProductCard.defaultProps = {
   background: "#31394d",
   width: "20rem",
   height: "12rem",
-  padding: ".75rem",
   primaryColor: "rgba(255,255,255,.89)",
   secondaryColor: "rgba(255,255,255,.6)",
   tertiaryColor: "rgba(255,255,255,.38)",
@@ -139,7 +123,6 @@ ProductCard.defaultProps = {
   fontBody: ".75rem",
   borderRadius: ".5rem",
   title: "Product Title",
-  subTitle: "React Developer",
   body: "Product description goes here. Please buy this great item",
   price: "$10.00",
 };

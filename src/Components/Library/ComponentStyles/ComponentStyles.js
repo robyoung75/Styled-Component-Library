@@ -37,6 +37,7 @@ const sharedStyles = css`
   background: ${(props) => props.background};
   width: ${(props) => props.width};
   height: ${(props) => props.height};
+  min-height: ${props => props.minHeight};
   padding: ${(props) => props.padding};
   margin: ${(props) => props.margin};
   margin-bottom: ${(props) => props.marginBottom};
@@ -55,6 +56,9 @@ const sharedStyles = css`
   font-size: ${(props) => props.fontSize};
   color: ${(props) => props.color};
   opacity: ${(props) => props.opacity};
+  transition-delay: ${props => props.transitionDelay};
+
+  ${props => props.imgTrans ? "&:hover {opacity: .89}" : null}
 `;
 
 // shared styles for Typography, p, h1 - h6
@@ -97,7 +101,9 @@ const StyledImage = styled.img`
   height: 100%;
   border-radius: ${(props) => props.borderRadius};
   object-fit: cover;
-  opacity: 0.89;
+  opacity: ${props => props.opacity || "1"};
+
+  
 
   ${(props) => (props.imgExp ? "&:hover {transform: scale(2); z-index: 1}" : null)}
 `;

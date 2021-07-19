@@ -5,7 +5,11 @@ import Avatar from "./Library/Avatar/Avatar";
 import Meter from "./Library/Meter/Meter";
 import SocialIcon from "./Library/SocialIcon/SocialIcon";
 
-import { Title, StyledP, StyledWrapper } from "./Library/ComponentStyles/ComponentStyles";
+import {
+  Title,
+  StyledP,
+  StyledWrapper,
+} from "./Library/ComponentStyles/ComponentStyles";
 
 import { handleEvent } from "../Assets/eventHandlers/eventHandlers";
 
@@ -46,7 +50,6 @@ function ProfileCard({
       flexDirection="column"
       alignItems="center"
       justifyContent="center"
-      margin="2rem 0"
       padding="1rem"
       background="#31394d"
       borderRadius=".5rem"
@@ -73,20 +76,22 @@ function ProfileCard({
       </StyledP>
       <StyledWrapper isFlex justifyContent="space-evenly">
         <Button
+          margin="1rem .5rem"
           onClick={(e) => {
             e.preventDefault();
             handleEvent(avatarActive, setAvatarActive);
           }}
         >
-          {avatarActive ? "notActive" : "setActive"}
+          {avatarActive ? "Not Active" : "Active"}
         </Button>
         <Button
+          margin="1rem .5rem"
           onClick={(e) => {
             e.preventDefault();
             handleEvent(hasBadge, setHasBadge);
           }}
         >
-          {hasBadge ? "noBadge" : "hasBadge"}
+          {hasBadge ? "No Badge" : "Badge"}
         </Button>
       </StyledWrapper>
       <StyledWrapper
@@ -101,7 +106,7 @@ function ProfileCard({
             handleEvent(hasImg, setHasImg);
           }}
         >
-          {hasImg ? "noImg" : "setImg"}
+          {hasImg ? "No Image" : "Image"}
         </Button>
         <Button
           onClick={(e) => {

@@ -9,6 +9,8 @@ import Navbar from "./Library/Navbar/Navbar";
 import ProfileCard from "./ProfileCard";
 import Login from "./Login";
 import BgCard from "./Library/BgCard/BgCard";
+import ProductCard from "./Library/ProductCard/ProductCard";
+import ProductCardFlip from "./Library/ProductCard/ProductCardFlip";
 
 //Styled Components Imports
 import {
@@ -28,15 +30,16 @@ import {
   handleCancel,
   handleSubmitUser,
 } from "../Assets/eventHandlers/eventHandlers";
-import ProductCard from "./Library/ProductCard/ProductCard";
 
 // App
 function App() {
   // State
+  // userData state
   const [firstName, setFirstName] = useState("@learn");
   const [lastName, setLastName] = useState("Mern");
   const [password, setPassword] = useState("");
   const [userName, setUserName] = useState("");
+
   const [userData, setUserData] = useState({
     firstName: firstName,
     lastName: lastName,
@@ -44,17 +47,29 @@ function App() {
     password: password,
     userImage: brighton,
   });
-
+  // Modal State
   const [modalActive, setModalActive] = useState(false);
-  const [isActive, setActive] = useState(true);
+
+  // Avatar State
   const [avatarActive, setAvatarActive] = useState(false);
   const [hasBadge, setHasBadge] = useState(false);
-  const [skillsActive, setSkillsActive] = useState(false);
   const [hasImg, setHasImg] = useState(false);
 
+  // Navbar State
+  const [isActive, setActive] = useState(true);
+
+  // ProfileCard State
+  const [skillsActive, setSkillsActive] = useState(false);
+
+  // BgCard State
   const [bgCardImg, setbgCardImg] = useState(zen);
 
-  const [productRating, setProductRating] = useState(2)
+  // Product state for ProductCard
+  const [product, setProduct] = useState({
+    productTitle: "Zen Image",
+    productImage: zen,
+    productRating: 2,
+  });
 
   return (
     <StyledWrapper>
@@ -86,24 +101,26 @@ function App() {
           Responsive Navbar with Hamburger and Dropdowns
         </StyledP>
 
-        <StyledWrapper isFlex justifyContent="center">
+        <StyledWrapper
+          isFlex
+          width="100%"
+          justifyContent="space-evenly"
+          padding="1rem"
+        >
           <StyledWrapper
-            padding="1rem"
             isFlex
             flexDirection="column"
             alignItems="center"
             justifyContent="center"
           >
-            {" "}
-            <StyledWrapper margin="1rem">
-              {" "}
+            <StyledWrapper padding="0 0 .5rem 0">
               <BgCard src={bgCardImg}></BgCard>
             </StyledWrapper>
-
-
-
-            <StyledWrapper margin="1rem">              
-              <ProductCard src={bgCardImg} productRating={productRating}></ProductCard>
+            <StyledWrapper padding=".5rem 0">
+              <ProductCard
+                src={product.productImage}
+                product={product}
+              ></ProductCard>
               <StyledP color="rgba(255,255,255,.6)">
                 {userData.userName}
               </StyledP>
@@ -111,9 +128,13 @@ function App() {
                 {userData.password}
               </StyledP>
             </StyledWrapper>
-
-
-            
+            <StyledWrapper padding=".5rem 0">
+              <ProductCard
+                src={product.productImage}
+                product={product}
+                flexDirection="column"
+              ></ProductCard>
+            </StyledWrapper>
           </StyledWrapper>
 
           <ProfileCard
@@ -130,6 +151,8 @@ function App() {
             setHasImg={setHasImg}
             src={userData.userImage}
           ></ProfileCard>
+
+          <ProductCardFlip src={product.productImage}></ProductCardFlip>
         </StyledWrapper>
       </StyledWrapper>
 
