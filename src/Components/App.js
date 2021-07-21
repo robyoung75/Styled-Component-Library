@@ -11,6 +11,7 @@ import Login from "./Login";
 import BgCard from "./Library/BgCard/BgCard";
 import ProductCard from "./Library/ProductCard/ProductCard";
 import ProductCardFlip from "./Library/ProductCard/ProductCardFlip";
+import ProductCardSlide from "./Library/ProductCard/ProductCardSlide";
 
 //Styled Components Imports
 import {
@@ -121,12 +122,6 @@ function App() {
                 src={product.productImage}
                 product={product}
               ></ProductCard>
-              <StyledP color="rgba(255,255,255,.6)">
-                {userData.userName}
-              </StyledP>
-              <StyledP color="rgba(255,255,255,.6)">
-                {userData.password}
-              </StyledP>
             </StyledWrapper>
             <StyledWrapper padding=".5rem 0">
               <ProductCard
@@ -151,8 +146,16 @@ function App() {
             setHasImg={setHasImg}
             src={userData.userImage}
           ></ProfileCard>
-
-          <ProductCardFlip src={product.productImage}></ProductCardFlip>
+          <StyledWrapper isFlex flexDirection="column" alignItems="center">
+            {" "}
+            <StyledWrapper padding="0 0 .5rem 0">
+              <ProductCardFlip src={product.productImage}></ProductCardFlip>
+            </StyledWrapper>
+            <StyledWrapper padding=".5rem 0">
+              {" "}
+              <ProductCardSlide userData={userData} ></ProductCardSlide>
+            </StyledWrapper>
+          </StyledWrapper>
         </StyledWrapper>
       </StyledWrapper>
 
