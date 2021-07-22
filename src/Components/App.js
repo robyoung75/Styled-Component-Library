@@ -153,7 +153,10 @@ function App() {
             </StyledWrapper>
             <StyledWrapper padding=".5rem 0">
               {" "}
-              <ProductCardSlide userData={userData} ></ProductCardSlide>
+              <ProductCardSlide
+                userData={userData}
+                src={product.productImage}
+              ></ProductCardSlide>
             </StyledWrapper>
           </StyledWrapper>
         </StyledWrapper>

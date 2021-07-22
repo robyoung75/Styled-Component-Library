@@ -46,7 +46,7 @@ function ProductCardFlip({
         <Title color={primaryColor}>{title}</Title>
         <StyledWrapper isFlex width="80%" margin=".5rem">
           {" "}
-          <StyledP color={secondaryColor}>{body}</StyledP>
+          <StyledP color={secondaryColor} fontSize=".75rem">{body}</StyledP>
         </StyledWrapper>
 
         <Button>Buy Now</Button>
@@ -65,7 +65,7 @@ ProductCardFlip.defaultProps = {
   tertiaryColor: "rgba(255,255,255,.38)",
   title: "Product Title",
   subTitle: "React Developer",
-  body: "Product description goes here. Please buy this great item",
+  body: "Lorem ipsum dolor sit amet, verear fabellas corrumpit vix no, ne has omnis sanctus sensibus, prima nihil meliore ad per. Est cu qualisque persecuti. Autem imperdiet gubergren sed ne, an.",
   price: "$10.00",
 };
 

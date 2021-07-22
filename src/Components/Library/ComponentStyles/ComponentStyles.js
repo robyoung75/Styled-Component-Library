@@ -37,12 +37,15 @@ const activeProductCard = css`
   // ProductCardSlide
   ${(props) =>
     props.hover
-      ? "&:hover .face1 {transform: translateY(0); background: linear-gradient(to bottom right, #8162ce, #f54ba5); border-radius: 0.5rem 0.5rem 0 0}"
+      ? "&:hover .productCard__container__card__face1 {transform: translateY(0); background: linear-gradient(to bottom right, #8162ce, #f54ba5); border-radius: 0.5rem 0.5rem 0 0}"
       : null}
-  ${(props) => (props.hover ? "&:hover .content {opacity: 1}" : null)}
   ${(props) =>
     props.hover
-      ? "&:hover .face2 {transform: translateY(0); border-radius: 0 0 0.5rem 0.5rem}"
+      ? "&:hover .productCard__container__card__face1__content {opacity: 1}"
+      : null}
+  ${(props) =>
+    props.hover 
+      ? "&:hover .productCard__container__card__face2 {transform: translateY(0); border-radius: 0 0 0.5rem 0.5rem}"
       : null}
 `;
 
@@ -118,12 +121,12 @@ const StyledLabel = styled.label`
 
 const StyledImage = styled.img`
   position: relative;
-  width: ${props => props.width || "100%"};
-  height: ${props => props.height || "100%"};
+  width: ${(props) => props.width || "100%"};
+  height: ${(props) => props.height || "100%"};
   border-radius: ${(props) => props.borderRadius};
   object-fit: cover;
   opacity: ${(props) => props.opacity || "1"};
-  border: ${props => props.border};
+  border: ${(props) => props.border};
 
   ${(props) =>
     props.imgExp ? "&:hover {transform: scale(2); z-index: 1}" : null}
